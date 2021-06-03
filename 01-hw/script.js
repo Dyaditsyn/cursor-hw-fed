@@ -22,11 +22,11 @@ const isEven = (Math.floor(total) % 2 === 0);
 
 const change = budget - total;
 
-const meanRounded = (total / numOfProd).toFixed(2);
+const meanRounded = parseFloat((total / numOfProd).toFixed(2));
 
 const discountPercent = Math.floor(Math.random() * (discountMax - discountMin + 1)) + discountMin;
 const discountReal = Math.round(total * discountPercent / 100);
-const newTotal = (total - discountReal).toFixed(2);
+const newTotal = parseFloat((total - discountReal).toFixed(2));
 
 const cost = Math.floor(total) / 2;
 const profit = cost - discountReal;
