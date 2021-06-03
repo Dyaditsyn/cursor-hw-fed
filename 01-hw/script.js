@@ -1,45 +1,45 @@
 "use strict" 
 
-const socks = 15.678;
-const jeans = 123.965;
-const tShirt = 90.2345;
+const socksPrice = 15.678;
+const jeansPrice = 123.965;
+const tShirtPrice = 90.2345;
 const numOfProd = 3;
 const budget = 500;
-const discountMin = 0;
-const discountMax = 100;
+const minDiscountPercent = 0;
+const maxDiscountPercent = 100;
 
-const maxPrice = Math.max(socks, jeans, tShirt);
+const maxPrice = Math.max(socksPrice, jeansPrice, tShirtPrice);
 
-const minPrice = Math.min(socks, jeans, tShirt);
+const minPrice = Math.min(socksPrice, jeansPrice, tShirtPrice);
 
-const total = socks + jeans + tShirt;
+const totalPrice = socksPrice + jeansPrice + tShirtPrice;
 
-const totalInt = Math.floor(socks) + Math.floor(jeans) + Math.floor(tShirt);
+const totalPriceInt = Math.floor(socksPrice) + Math.floor(jeansPrice) + Math.floor(tShirtPrice);
 
-const totalHundreds = Math.round(totalInt/100)*100;;
+const totalPriceHundreds = Math.round(totalPriceInt/100)*100;
 
-const isEven = (Math.floor(total) % 2 === 0);
+const isTotalPriceEven = (Math.floor(totalPrice) % 2 === 0);
 
-const change = budget - total;
+const change = budget - totalPrice;
 
-const meanRounded = parseFloat((total / numOfProd).toFixed(2));
+const averagePriceRound = parseFloat((totalPrice / numOfProd).toFixed(2));
 
-const discountPercent = Math.floor(Math.random() * (discountMax - discountMin + 1)) + discountMin;
-const discountReal = Math.round(total * discountPercent / 100);
-const newTotal = parseFloat((total - discountReal).toFixed(2));
+const randomDiscountPercent = Math.floor(Math.random() * (maxDiscountPercent - minDiscountPercent + 1)) + minDiscountPercent;
+const discountRealRound = Math.round(totalPrice * randomDiscountPercent / 100);
+const saleTotalPrice = parseFloat((totalPrice - discountRealRound).toFixed(2));
 
-const cost = Math.floor(total) / 2;
-const profit = cost - discountReal;
+const costTotalPriceRound = Math.floor(totalPrice) / 2;
+const profit = costTotalPriceRound - discountRealRound;
 
 console.log(`Максимальна ціна: ${maxPrice}
 Мінімальна ціна: ${minPrice}
-Вартість всіх товарів: ${total}
-Вартість всіх товарів обчислена з відкиненням копійок: ${totalInt}
-Сума товарів округлена до сотень: ${totalHundreds}
-Чи є сума округлена в меншу сторону (${Math.floor(total)}) парним числом? ${isEven}
+Вартість всіх товарів: ${totalPrice}
+Вартість всіх товарів обчислена з відкиненням копійок: ${totalPriceInt}
+Сума товарів округлена до сотень: ${totalPriceHundreds}
+Чи є сума округлена в меншу сторону (${Math.floor(totalPrice)}) парним числом? ${isTotalPriceEven}
 Решта з 500грн (без округлення, за всі товари): ${change}
-Середнє значення цін округлене до другого знаку: ${meanRounded}
-Випадкова знижка: ${discountPercent}%
-Сума до оплати після знижки: ${newTotal}
+Середнє значення цін округлене до другого знаку: ${averagePriceRound}
+Випадкова знижка: ${randomDiscountPercent}%
+Сума до оплати після знижки: ${saleTotalPrice}
 Чистий прибуток: ${profit}
 `);
