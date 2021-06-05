@@ -1,38 +1,50 @@
 "use strict" 
 
-const firstNum = inputValid("first");
-const secondNum = inputValid("second");
+main();
 
-const lowLimit = Math.min(firstNum, secondNum);
-const hightLimit = Math.max(firstNum, secondNum);
+function main(){
 
-const isSkipEven = confirm("Skip even numbers for summing-up?");
+    const firstNum = inputValid("first");
+    if (firstNum === null) {return;}
 
-let intervalSum = 0;
+    const secondNum = inputValid("second");
+    if (secondNum === null) {return;}
 
-for (let i = lowLimit; i <= hightLimit; i++){
-    if(isSkipEven){
-        if (i % 2){
+    const lowLimit = Math.min(firstNum, secondNum);
+    const hightLimit = Math.max(firstNum, secondNum);
+
+    const isSkipEven = confirm("Skip even numbers for summing-up?");
+
+    let intervalSum = 0;
+
+    for (let i = lowLimit; i <= hightLimit; i++){
+        if(isSkipEven){
+            if (i % 2){
+                intervalSum += i;
+            }
+        }
+        else {
             intervalSum += i;
         }
     }
-    else {
-        intervalSum += i;
-    }
-}
 
-console.log(`The sum of numbers in interval from ${lowLimit} to ${hightLimit} included is: ${intervalSum}. You chose to skip even numbers? ${isSkipEven}`)
+    console.log(`The sum of numbers in interval from ${lowLimit} to ${hightLimit} included is: ${intervalSum}. You chose to skip even numbers? ${isSkipEven}`)
+
+}
 
 // help function validates user input from prompt. Only integer numbers allowed for further calculations.
 // receives: inputed number order (first or second to make function more generic)
 // returns: integer from prompt line. 
-// In case of fractional number in promt line parseInt converts to integer. In case of not numeric input user has another choice for input.
+// Accepts only integer input, filters empty line, fractional numbers and sequences include not numeric symbols
 function inputValid(order) {
-    let inputVal;
-    do {
-        inputVal = parseInt(prompt(`Enter a ${order} number`, "0"), 10);
-    } while (isNaN(inputVal));
-    return inputVal;
+    let inputVal = prompt(`Enter a ${order} number`, "0");
+    if (inputVal === null){
+        alert("You canceled the program. Please refresh the page to try again");
+        return null;
+    }
+    while ( inputVal.trim().length == 0 || +inputVal % 1 !== 0 || isNaN(+inputVal) ){
+        inputVal = prompt(`Integer is required for ${order} number! Please try again `, "0");
+    }
+    return +inputVal;
 }
-
 
