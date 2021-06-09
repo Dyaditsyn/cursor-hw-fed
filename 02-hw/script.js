@@ -1,18 +1,19 @@
 "use strict" 
 
-main();
+let firstNum;
+let secondNum;
 
-function main(){
+try {
+    main();
+}
+catch(error){
+    console.log(error);
+}
 
-    const firstNum = inputValid("first");
-    if (firstNum === null) {
-        return;
-    }
+function main() {
 
-    const secondNum = inputValid("second");
-    if (secondNum === null) {
-        return;
-    }
+    firstNum = inputValid("first");
+    secondNum = inputValid("second");    
 
     const lowLimit = Math.min(firstNum, secondNum);
     const hightLimit = Math.max(firstNum, secondNum);
@@ -22,18 +23,16 @@ function main(){
     let intervalSum = 0;
 
     for (let i = lowLimit; i <= hightLimit; i++){
-        if(isSkipEven){
-            if (i % 2){
-                intervalSum += i;
-            }
-        } else {
-            intervalSum += i;
+        if (isSkipEven &&  !(i % 2) ) {
+            continue;
         }
+        intervalSum += i;
     }
 
-    console.log(`The sum of numbers in interval from ${lowLimit} to ${hightLimit} included is: ${intervalSum}. 
-                You chose to skip even numbers? ${isSkipEven}`);
+    const message = `The sum of numbers in interval from ${lowLimit} to ${hightLimit} included is: ${intervalSum}.
+    You chose to skip even numbers - ${isSkipEven}`
 
+    document.writeln(message);
 }
 
 // help function validates user input from prompt. Only integer numbers allowed for further calculations.
@@ -45,15 +44,14 @@ function inputValid(order) {
 
     let inputVal = prompt(`Enter a ${order} number`, "0");
 
-    if (inputVal === null){
+    if (!inputVal && inputVal !==0){
         alert("You canceled the program. Please refresh the page to try again");
-        return null;
+        throw new Error("Program aborted by user");
     }
 
-    while ( inputVal.trim().length == 0 || +inputVal % 1 !== 0 || isNaN(+inputVal) ){
+    while ( !(inputVal && inputVal.trim().length) || +inputVal % 1 !== 0 || isNaN(+inputVal) ){
         inputVal = prompt(`Integer is required for ${order} number! Please try again `, "0");
     }
 
     return +inputVal;
 }
-
