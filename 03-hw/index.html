@@ -1,16 +1,187 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
     <title>Homework #03 Functions</title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="style.css">
 </head>
-<body>
-    <h1>Homework #03 Functions</h1>
-    <h3>By Vyacheslav Dyaditsyn</h3>
-    <p>under construction</p>
+  <body>
+
+    <div class="container my-2">
+      <header class="mb-3">
+        <h1>Homework #03 Functions</h1>
+        <h3>By Vyacheslav Dyaditsyn</h3>
+      </header>
+      <div class="row row-cols-1 row-cols-sm-2 row-cols-md-4 justify-content-center">
+
+        <div class="card m-1 bg-light bg-gradient" style="width: 23rem;">
+          <div class="card-body">
+            <h5 class="card-title">Function 1</h5>
+            <p class="card-text">Max digit in number.</p>
+            <div class="mb-3">
+              <label for="maxDigitInput" class="form-label">Number:</label>
+              <input type="number" class="form-control" id="maxDigitInput" placeholder="Enter any number...">
+              <button type="button" class="btn btn-success my-2" onclick="getMaxDigit()">Find max digit!</button>
+            </div>
+            <div id="maxDigit1Res"></div>
+          </div>
+        </div>
+
+        <div class="card m-1 bg-light bg-gradient" style="width: 23rem;">
+          <div class="card-body">
+            <h5 class="card-title">Function 2</h5>
+            <p class="card-text">Power function implementation.</p>
+            <div class="mb-3">
+              <label for="" class="form-label">Base:</label>
+              <input type="number" class="form-control" id="" placeholder="Enter any number...">
+              <label for="" class="form-label">Power:</label>
+              <input type="number" class="form-control" id="" placeholder="Enter any INTEGER number...">
+              <button type="button" class="btn btn-success my-2" onclick="">Calc power!</button>
+            </div>
+            <div id=""></div>
+          </div>
+        </div>
+
+        <div class="card m-1 bg-light bg-gradient" style="width: 23rem;">
+          <div class="card-body">
+            <h5 class="card-title">Function 3</h5>
+            <p class="card-text">Capitalizing a name.</p>
+            <div class="mb-3">
+              <label for="" class="form-label">Name:</label>
+              <input type="text" class="form-control" id="" placeholder="Enter a name...">
+              <button type="button" class="btn btn-success my-2" onclick="">Find max digit!</button>
+            </div>
+            <div id=""></div>
+          </div>
+        </div>
+
+        <div class="card m-1 bg-light bg-gradient" style="width: 23rem;">
+          <div class="card-body">
+            <h5 class="card-title">Function 4</h5>
+            <p class="card-text">Net salary calculation.</p>
+            <div class="mb-3">
+              <label for="" class="form-label">Gross salary:</label>
+              <input type="number" class="form-control" id="" placeholder="Enter a gross salary...">
+              <button type="button" class="btn btn-success my-2" onclick="">Clear taxes!</button>
+            </div>
+            <div id=""></div>
+          </div>
+        </div>
+
+        <div class="card m-1 bg-light bg-gradient" style="width: 23rem;">
+          <div class="card-body">
+            <h5 class="card-title">Function 5</h5>
+            <p class="card-text">Random number in given interval</p>
+            <div class="mb-3">
+              <label for="" class="form-label">First Limit:</label>
+              <input type="number" class="form-control" id="" placeholder="Enter an INTEGER...">
+              <label for="" class="form-label">Second Limit:</label>
+              <input type="number" class="form-control" id="" placeholder="Enter a INTEGER...">
+              <button type="button" class="btn btn-success my-2" onclick="">Generate!</button>
+            </div>
+            <div id=""></div>
+          </div>
+        </div>
+
+        <div class="card m-1 bg-light bg-gradient" style="width: 23rem;">
+          <div class="card-body">
+            <h5 class="card-title">Function 6</h5>
+            <p class="card-text">Calculate a given letter repetition</p>
+            <div class="mb-3">
+              <label for="" class="form-label">Letter:</label>
+              <input type="text" class="form-control" id="" placeholder="Enter a Letter...">
+              <label for="" class="form-label">Word or phrase:</label>
+              <input type="text" class="form-control" id="" placeholder="Enter a Word or phrase...">
+              <button type="button" class="btn btn-success my-2" onclick="">Calculate!</button>
+            </div>
+            <div id=""></div>
+          </div>
+        </div>
+
+        <div class="card m-1 bg-light bg-gradient" style="width: 23rem;">
+          <div class="card-body">
+            <h5 class="card-title">Function 7</h5>
+            <p class="card-text">Convert USD <-> UAH</p>
+            <div class="mb-3">
+              <label for="" class="form-label">Amount with currency:</label>
+              <input type="text" class="form-control" id="" placeholder="Enter an amount with currency...">
+              <button type="button" class="btn btn-success my-2" onclick="">Convert!</button>
+            </div>
+            <div id=""></div>
+          </div>
+        </div>
+
+        <div class="card m-1 bg-light bg-gradient" style="width: 23rem;">
+          <div class="card-body">
+            <h5 class="card-title">Function 8</h5>
+            <p class="card-text">Random password generation</p>
+            <div class="mb-3">
+              <label for="" class="form-label">Password length:</label>
+              <input type="number" class="form-control" id="" placeholder="Enter an INTEGER for password length...">
+              <button type="button" class="btn btn-success my-2" onclick="">Generate!</button>
+            </div>
+            <div id=""></div>
+          </div>
+        </div>
+
+        <div class="card m-1 bg-light bg-gradient" style="width: 23rem;">
+          <div class="card-body">
+            <h5 class="card-title">Function 9</h5>
+            <p class="card-text">Remove a given letter from the sentence.</p>
+            <div class="mb-3">
+              <label for="" class="form-label">Letter:</label>
+              <input type="text" class="form-control" id="" placeholder="Enter a Letter...">
+              <label for="" class="form-label">Word or phrase:</label>
+              <input type="text" class="form-control" id="" placeholder="Enter a Word or phrase...">
+              <button type="button" class="btn btn-success my-2" onclick="">Remove!</button>
+            </div>
+            <div id=""></div>
+          </div>
+        </div>
+
+        <div class="card m-1 bg-light bg-gradient" style="width: 23rem;">
+          <div class="card-body">
+            <h5 class="card-title">Function 10</h5>
+            <p class="card-text">Checking for palindrom.</p>
+            <div class="mb-3">
+              <label for="" class="form-label">Word or phrase:</label>
+              <input type="number" class="form-control" id="" placeholder="Enter a Word or phrase...">
+              <button type="button" class="btn btn-success my-2" onclick="">Find max digit!</button>
+            </div>
+            <div id=""></div>
+          </div>
+        </div>
+
+        <div class="card m-1 bg-light bg-gradient" style="width: 23rem;">
+          <div class="card-body">
+            <h5 class="card-title">Function 11</h5>
+            <p class="card-text">Remove repetitive letters from the sentence</p>
+            <div class="mb-3">
+              <label for="" class="form-label">Letter:</label>
+              <input type="text" class="form-control" id="" placeholder="Enter a Letter...">
+              <label for="" class="form-label">Word or phrase:</label>
+              <input type="text" class="form-control" id="" placeholder="Enter a Word or phrase...">
+              <button type="button" class="btn btn-success my-2" onclick="">Remove!</button>
+            </div>
+            <div id=""></div>
+          </div>
+        </div>
+
+      </div>
+      </div>
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
     
-    <script src="./script.js"></script>
+    <script src="main.js"></script>
+    <script src="view.js"></script>
 </body>
 </html>
