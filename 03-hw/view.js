@@ -70,3 +70,22 @@ function execNetSalary() {
         result.innerHTML = error;
     }
 }
+
+// #5 //
+
+function execRandomNumber() {
+    const inputNum1 = document.getElementById("first-num").value;
+    const inputNum2 = document.getElementById("second-num").value;
+    const result = document.getElementById("random-num-res");
+    result.innerHTML = "";
+    let randomNum;
+    try{
+        randomNum = getRandomNumber(inputNum1, inputNum2);
+        result.classList.remove("text-danger");
+        result.innerHTML = `Result is: ${randomNum}`;
+    }
+    catch(error){
+        result.classList.add("text-danger");
+        result.innerHTML = error;
+    }
+}

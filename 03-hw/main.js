@@ -38,7 +38,14 @@ function calcNetSalary(inputSalary){
     return grossSalary - grossSalary * TAX;
 }
 
-
+// #5 //
+function getRandomNumber(inputNum1, inputNum2) {
+    const firstNum = inputIntegerValid(inputNum1, "for first limit");
+    const secondNum = inputIntegerValid(inputNum2, "for second limit");
+    const lowLimit = Math.min(firstNum, secondNum);
+    const highLimit = Math.max(firstNum, secondNum);
+    return Math.floor (Math.random() * (highLimit - lowLimit + 1) ) + lowLimit;
+}
 
 //--------------------------------------------------------------------------------------------------------------------//
 
