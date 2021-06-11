@@ -60,9 +60,40 @@ function calcLetterRepetition(inputLetter, inputPhrase) {
             countLetter++;
         }
     }
-    console.log(countLetter);
     return countLetter;
 }
+
+// #7 //
+function convertCurrency(inputCurrency) {
+    const rate = 27;
+    const currency = inputStringValid(inputCurrency);
+    let convertedCurrency = "";
+
+    if ( currency.slice(-3).toUpperCase() === "UAH") {
+        const amount = inputNumberValid(currency.slice(0, -3), "for money amout");
+        if (amount < 0) {
+            throw new Error(`Invalid input! Money amount better be represented with positive number`);
+        }
+        convertedCurrency = (parseFloat(currency)/rate).toFixed(2) + "$";
+    }
+
+    else if ( currency.slice(-1) === "$") {
+        const amount = inputNumberValid(currency.slice(0, -1), "for money amout");
+        if (amount < 0) {
+            throw new Error(`Invalid input! Money amount better be represented with positive number`);
+        }
+        convertedCurrency = (parseFloat(currency)*rate).toFixed(2) + "UAH";
+    }
+
+    else {
+        throw new Error(`Invalid input! Check formats accepted`); 
+    }
+
+    return convertedCurrency;
+}
+
+
+
 
 //--------------------------------------------------------------------------------------------------------------------//
 
@@ -86,7 +117,7 @@ function inputIntegerValid(inputVal, clarify = "") {
 // check string for empty input
 function inputStringValid(inputVal) {
     if ( !(inputVal && inputVal.trim().length)  ) {
-        throw new Error(`Invalid input! Phrase field can not be empty`);
+        throw new Error(`Invalid input! Field can not be empty`);
     }
     return inputVal;
 }

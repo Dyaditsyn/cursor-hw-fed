@@ -95,13 +95,31 @@ function execRandomNumber() {
 function execCalcLetterRepetition() {
     const letter = document.getElementById("calc-letter").value;
     const phrase = document.getElementById("calc-phrase").value;
-    const result = document.getElementById("calc-letter-result");
+    const result = document.getElementById("calc-letter-res");
     result.innerHTML = "";
     let letterCount;
     try{
         letterCount = calcLetterRepetition(letter, phrase);
         result.classList.remove("text-danger");
         result.innerHTML = `Letter "${letter}" appears ${letterCount} times`;
+    }
+    catch(error){
+        result.classList.add("text-danger");
+        result.innerHTML = error;
+    }
+}
+
+// #7 //
+
+function execConvertCurrency() {
+    const currency = document.getElementById("currency-input").value;
+    const result = document.getElementById("currency-res");
+    result.innerHTML = "";
+    let convertedRes;
+    try{
+        convertedRes = convertCurrency(currency);
+        result.classList.remove("text-danger");
+        result.innerHTML = `Converted result is: ${convertedRes}`;
     }
     catch(error){
         result.classList.add("text-danger");
