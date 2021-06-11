@@ -1,16 +1,19 @@
 "use strict";
-
+// #1 //
 function getMaxDigit(){
-    const input = document.getElementById("maxDigitInput").value;
-    const result = document.getElementById("maxDigit1Res");
+    const input = document.getElementById("max-digit-input").value;
+    const result = document.getElementById("max-digit-res");
     result.innerHTML = "";
     let maxDigit;
     try{
         maxDigit = calcMaxDigit(input);
+        result.classList.remove("text-danger");
         result.innerHTML = `The max digit is: ${maxDigit}`;
     }
     catch(error){
-        result.innerHTML = `Invalid input. Number is required`;
+        result.classList.add("text-danger");
+        result.innerHTML = error;
     }
-
 }
+
+// #2 //
