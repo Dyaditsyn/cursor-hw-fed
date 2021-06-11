@@ -17,3 +17,20 @@ function getMaxDigit(){
 }
 
 // #2 //
+
+function getPower() {
+    const inputBase = document.getElementById("base-input").value;
+    const inputPower = document.getElementById("power-input").value;
+    const result = document.getElementById("power-res");
+    result.innerHTML = "";
+    let power;
+    try{
+        power = calcPower(inputBase, inputPower);
+        result.classList.remove("text-danger");
+        result.innerHTML = `Result is: ${power}`;
+    }
+    catch(error){
+        result.classList.add("text-danger");
+        result.innerHTML = error;
+    }
+}
