@@ -47,6 +47,23 @@ function getRandomNumber(inputNum1, inputNum2) {
     return Math.floor (Math.random() * (highLimit - lowLimit + 1) ) + lowLimit;
 }
 
+// #6 //
+function calcLetterRepetition(inputLetter, inputPhrase) {
+    const letter = inputLetterValid(inputLetter).toLowerCase();
+    const phrase = inputStringValid(inputPhrase).toLowerCase();
+    const phraseArr = phrase.split('');
+
+    let countLetter = 0;
+    for (let i = 0; i < phraseArr.length; i++) {
+        console.log(phraseArr[i])
+        if ( phraseArr[i] === letter ) {
+            countLetter++;
+        }
+    }
+    console.log(countLetter);
+    return countLetter;
+}
+
 //--------------------------------------------------------------------------------------------------------------------//
 
 // help function validate input for numbers only. Receives a string from the input.
@@ -67,17 +84,17 @@ function inputIntegerValid(inputVal, clarify = "") {
 }
 
 // check string for empty input
-function inputStringValid(inputVal, clarify = "") {
+function inputStringValid(inputVal) {
     if ( !(inputVal && inputVal.trim().length)  ) {
-        throw new Error(`Invalid input! Empty string ${clarify} is not allowed`);
+        throw new Error(`Invalid input! Phrase field can not be empty`);
     }
     return inputVal;
 }
 
 // same as previous but limit for 1 symbol only
-function inputLetterValid(inputVal, clarify = "") {
+function inputLetterValid(inputVal) {
     if ( !(inputVal && inputVal.trim().length) || inputVal.trim().length > 1 ) {
-        throw new Error(`Invalid input! Only one letter ${clarify} is allowed`);
+        throw new Error(`Invalid input! One letter is only allowed in Letter input`);
     }
     return inputVal;
 }

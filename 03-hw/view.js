@@ -89,3 +89,22 @@ function execRandomNumber() {
         result.innerHTML = error;
     }
 }
+
+// #6 //
+
+function execCalcLetterRepetition() {
+    const letter = document.getElementById("calc-letter").value;
+    const phrase = document.getElementById("calc-phrase").value;
+    const result = document.getElementById("calc-letter-result");
+    result.innerHTML = "";
+    let letterCount;
+    try{
+        letterCount = calcLetterRepetition(letter, phrase);
+        result.classList.remove("text-danger");
+        result.innerHTML = `Letter "${letter}" appears ${letterCount} times`;
+    }
+    catch(error){
+        result.classList.add("text-danger");
+        result.innerHTML = error;
+    }
+}
