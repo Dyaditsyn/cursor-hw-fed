@@ -1,6 +1,6 @@
 "use strict";
 // #1 //
-function getMaxDigit(){
+function execMaxDigit(){
     const input = document.getElementById("max-digit-input").value;
     const result = document.getElementById("max-digit-res");
     result.innerHTML = "";
@@ -18,7 +18,7 @@ function getMaxDigit(){
 
 // #2 //
 
-function getPower() {
+function execPower() {
     const inputBase = document.getElementById("base-input").value;
     const inputPower = document.getElementById("power-input").value;
     const result = document.getElementById("power-res");
@@ -34,3 +34,22 @@ function getPower() {
         result.innerHTML = error;
     }
 }
+
+// #3 //
+
+function execCapitalizeName() {
+    const inputName = document.getElementById("capitalize-input").value;
+    const result = document.getElementById("capitalize-res");
+    result.innerHTML = "";
+    let capitalized;
+    try{
+        capitalized = capitalizeName(inputName);
+        result.classList.remove("text-danger");
+        result.innerHTML = `Result is: ${capitalized}`;
+    }
+    catch(error){
+        result.classList.add("text-danger");
+        result.innerHTML = error;
+    }
+}
+
