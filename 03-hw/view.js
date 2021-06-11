@@ -53,3 +53,20 @@ function execCapitalizeName() {
     }
 }
 
+// #4 //
+
+function execNetSalary() {
+    const grossSalary = document.getElementById("gross-salary").value;
+    const result = document.getElementById("net-salary-res");
+    result.innerHTML = "";
+    let netSalary;
+    try{
+        netSalary = calcNetSalary(grossSalary);
+        result.classList.remove("text-danger");
+        result.innerHTML = `Result is: ${netSalary}`;
+    }
+    catch(error){
+        result.classList.add("text-danger");
+        result.innerHTML = error;
+    }
+}
