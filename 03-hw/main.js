@@ -105,6 +105,21 @@ function passGen(inputLength) {
     return password;
 }
 
+// #9 //
+function removeLetter(inputLetter, inputPhrase) {
+    const letter = inputLetterValid(inputLetter).toLowerCase();
+    const phrase = inputStringValid(inputPhrase).toLowerCase();
+    const phraseArr = phrase.split('');
+
+    for (let i = 0; i < phraseArr.length; i++) {
+        if ( phraseArr[i] === letter ) {
+            phraseArr.splice( phraseArr.indexOf(phraseArr[i]), 1 );
+            i--;
+        }
+    }
+    return phraseArr.join('');
+}
+
 //--------------------------------------------------------------------------------------------------------------------//
 
 // help function validate input for numbers only. Receives a string from the input.

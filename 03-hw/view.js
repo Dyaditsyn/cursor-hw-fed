@@ -137,3 +137,21 @@ function execPassGen() {
         result.innerHTML = error;
     }
 }
+
+// #9 // 
+function execRemoveLetter() {
+    const letter = document.getElementById("remove-letter").value;
+    const phrase = document.getElementById("remove-phrase").value;
+    const result = document.getElementById("remove-letter-res");
+    result.innerHTML = "";
+    let res;
+    try{
+        res = removeLetter(letter, phrase);
+        result.classList.remove("text-danger");
+        result.innerHTML = `Result is: ${res}`;
+    }
+    catch(error){
+        result.classList.add("text-danger");
+        result.innerHTML = error;
+    }
+}
