@@ -92,8 +92,18 @@ function convertCurrency(inputCurrency) {
     return convertedCurrency;
 }
 
-
-
+// #8 //
+function passGen(inputLength) {
+    if ( (inputLength < 0) || (inputLength % 1 != 0) ) {
+        throw new Error(`Invalid input! Password length must be a positive integer`);
+    }
+    !inputLength ? inputLength = 8 : inputLength
+    let password = "";
+    for (let i = 0; i < inputLength; i++){
+        password += getRandomNumber("0", "9");
+    }
+    return password;
+}
 
 //--------------------------------------------------------------------------------------------------------------------//
 

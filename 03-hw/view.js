@@ -17,7 +17,6 @@ function execMaxDigit(){
 }
 
 // #2 //
-
 function execPower() {
     const inputBase = document.getElementById("base-input").value;
     const inputPower = document.getElementById("power-input").value;
@@ -36,7 +35,6 @@ function execPower() {
 }
 
 // #3 //
-
 function execCapitalizeName() {
     const inputName = document.getElementById("capitalize-input").value;
     const result = document.getElementById("capitalize-res");
@@ -54,7 +52,6 @@ function execCapitalizeName() {
 }
 
 // #4 //
-
 function execNetSalary() {
     const grossSalary = document.getElementById("gross-salary").value;
     const result = document.getElementById("net-salary-res");
@@ -72,7 +69,6 @@ function execNetSalary() {
 }
 
 // #5 //
-
 function execRandomNumber() {
     const inputNum1 = document.getElementById("first-num").value;
     const inputNum2 = document.getElementById("second-num").value;
@@ -91,7 +87,6 @@ function execRandomNumber() {
 }
 
 // #6 //
-
 function execCalcLetterRepetition() {
     const letter = document.getElementById("calc-letter").value;
     const phrase = document.getElementById("calc-phrase").value;
@@ -110,7 +105,6 @@ function execCalcLetterRepetition() {
 }
 
 // #7 //
-
 function execConvertCurrency() {
     const currency = document.getElementById("currency-input").value;
     const result = document.getElementById("currency-res");
@@ -120,6 +114,23 @@ function execConvertCurrency() {
         convertedRes = convertCurrency(currency);
         result.classList.remove("text-danger");
         result.innerHTML = `Converted result is: ${convertedRes}`;
+    }
+    catch(error){
+        result.classList.add("text-danger");
+        result.innerHTML = error;
+    }
+}
+
+// #8 // 
+function execPassGen() {
+    const passLength = document.getElementById("pass-input").value;
+    const result = document.getElementById("pass-res");
+    result.innerHTML = "";
+    let pass;
+    try{
+        pass = passGen(passLength);
+        result.classList.remove("text-danger");
+        result.innerHTML = `Your password is: ${pass}`;
     }
     catch(error){
         result.classList.add("text-danger");
