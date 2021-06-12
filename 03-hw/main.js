@@ -117,7 +117,7 @@ function removeLetter(inputLetter, inputPhrase) {
             i--;
         }
     }
-    return phraseArr.join('');
+    return phraseArr.join('') || "nothing";
 }
 
 // #10 //
@@ -126,6 +126,20 @@ function checkPalindrom(input) {
     return inputPhrase.split(' ').join('').split('').reverse().join('').toLowerCase() ===
            inputPhrase.split(' ').join('').toLowerCase() ? 
            true : false;
+}
+
+// #11 //
+function RemoveDuplicateLetter(input) {
+    const inputPhrase = inputStringValid(input);
+    const tempArr = inputPhrase.split(' ').join('').toLowerCase().split('');
+    let uniques = "";
+    for (let i = 0; i < tempArr.length; i++) {
+        if ( tempArr.indexOf(tempArr[i]) === tempArr.lastIndexOf(tempArr[i]) ) {
+            uniques += tempArr[i];
+        }
+    }
+
+    return uniques || "nothing";
 }
 
 //--------------------------------------------------------------------------------------------------------------------//

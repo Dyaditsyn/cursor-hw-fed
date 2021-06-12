@@ -172,3 +172,20 @@ function execPalindrom() {
         result.innerHTML = error;
     }
 }
+
+// #11 // 
+function execRemoveDuplicateLetter() {
+    const inputPhrase = document.getElementById("remove-duplicate").value;
+    const result = document.getElementById("remove-duplicate-res");
+    result.innerHTML = "";
+    let noDublicates;
+    try{
+        noDublicates = RemoveDuplicateLetter(inputPhrase);
+        result.classList.remove("text-danger");
+        result.innerHTML = `Result is: ${noDublicates}`;
+    }
+    catch(error){
+        result.classList.add("text-danger");
+        result.innerHTML = error;
+    }
+}
