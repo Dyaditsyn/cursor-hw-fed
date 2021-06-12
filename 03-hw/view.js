@@ -155,3 +155,20 @@ function execRemoveLetter() {
         result.innerHTML = error;
     }
 }
+
+// #10 // 
+function execPalindrom() {
+    const isPalInput = document.getElementById("palindrom").value;
+    const result = document.getElementById("palindrom-res");
+    result.innerHTML = "";
+    let isPalindrom;
+    try{
+        isPalindrom = checkPalindrom(isPalInput);
+        result.classList.remove("text-danger");
+        result.innerHTML = `Is it palinfrom? ${isPalindrom}`;
+    }
+    catch(error){
+        result.classList.add("text-danger");
+        result.innerHTML = error;
+    }
+}

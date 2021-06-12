@@ -120,6 +120,14 @@ function removeLetter(inputLetter, inputPhrase) {
     return phraseArr.join('');
 }
 
+// #10 //
+function checkPalindrom(input) {
+    const inputPhrase = inputStringValid(input);
+    return inputPhrase.split(' ').join('').split('').reverse().join('').toLowerCase() ===
+           inputPhrase.split(' ').join('').toLowerCase() ? 
+           true : false;
+}
+
 //--------------------------------------------------------------------------------------------------------------------//
 
 // help function validate input for numbers only. Receives a string from the input.
