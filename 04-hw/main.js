@@ -37,6 +37,7 @@ console.log(studentMarks);
 // #4 //
 const getPairsRandomMarks = pairsThemes => {
     let pairsRandomMarks = [...pairsThemes];
+    
     for (let i = 0; i < pairsRandomMarks.length; i++) {
         pairsRandomMarks[i].push(randomGrade());
     }
