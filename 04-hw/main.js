@@ -10,17 +10,19 @@ const getPairs = students => [[students[0], students[2]], [students[1], students
 const pairs = getPairs(students);
 console.log(pairs);
 
+
 // #2 //
 const getPairsThemes = (pairs, themes) => {
     let pairsThemes =[];
     for (let i = 0; i < pairs.length; i++) {
-        pairsThemes[i] = [pairs[i].join(" і ").split(",").concat(themes[i])];
+        pairsThemes[i] = pairs[i].join(" і ").split(",").concat(themes[i]);
     }
     return pairsThemes;
 }
 
 const pairsThemes = getPairsThemes(pairs, themes);
 console.log(pairsThemes);
+
 
 // #3 //
 const getStudentMarks = (students, marks) => {
@@ -34,18 +36,19 @@ const getStudentMarks = (students, marks) => {
 const studentMarks = getStudentMarks(students, marks);
 console.log(studentMarks);
 
+
 // #4 //
 const getPairsRandomMarks = pairsThemes => {
-    let pairsRandomMarks = [...pairsThemes];
-    
-    for (let i = 0; i < pairsRandomMarks.length; i++) {
-        pairsRandomMarks[i].push(randomGrade());
+    let pairsRandomMarks = [];  
+    for (let i = 0; i < pairsThemes.length; i++) {
+        pairsRandomMarks[i] = pairsThemes[i].concat(randomGrade());
     }
     return pairsRandomMarks;
 }
 
 const pairsRandomMarks = getPairsRandomMarks(pairsThemes);
 console.log(pairsRandomMarks);
+
 
 // help function calculates random grade 1...5
 function randomGrade() {
