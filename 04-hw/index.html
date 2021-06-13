@@ -13,22 +13,53 @@
   <body>
 
     <div class="container my-2">
-      <header class="mb-3">
+      <header class="mb-3 text-center">
         <h1>Homework #04 Arrays</h1>
         <h3>By Vyacheslav Dyaditsyn</h3>
       </header>
-      <main class="row row-cols-1 row-cols-sm-2 row-cols-md-4 justify-content-center">
+      <main class="row justify-content-center">
 
-        <div class="card m-1 bg-light bg-gradient" style="width: 23rem;">
+        <div class="card m-1 bg-light bg-gradient" style="width: 50rem;">
           <div class="card-body">
-            <h5 class="card-title">TITLE</h5>
-            <p class="card-text">description</p>
+            <h5 class="card-title">Task 1</h5>
+            <p class="card-text">Show student pairs:</p>
             <div class="mb-3">
-              <label for="" class="form-label">Label:</label>
-              <input type="number" class="form-control" id="" placeholder="some placeholder">
-              <button type="button" class="btn btn-success my-2" onclick="">Find max digit!</button>
+              <button type="button" class="btn btn-success my-2" onclick="showPairs()">Show!</button>
             </div>
-            <div id=""></div>
+            <div id="task1-res"></div>
+          </div>
+        </div>
+
+        <div class="card m-1 bg-light bg-gradient" style="width: 50rem;">
+          <div class="card-body">
+            <h5 class="card-title">Task 2</h5>
+            <p class="card-text">Show pairs and subject:</p>
+            <div class="mb-3">
+              <button type="button" class="btn btn-success my-2" onclick="showPairsSubject()">Show!</button>
+            </div>
+            <div id="task2-res"></div>
+          </div>
+        </div>
+
+        <div class="card m-1 bg-light bg-gradient" style="width: 50rem;">
+          <div class="card-body">
+            <h5 class="card-title">Task 3</h5>
+            <p class="card-text">Show student and grade:</p>
+            <div class="mb-3">
+              <button type="button" class="btn btn-success my-2" onclick="showStudentGrade()">Show!</button>
+            </div>
+            <div id="task3-res"></div>
+          </div>
+        </div>
+
+        <div class="card m-1 bg-light bg-gradient" style="width: 50rem;">
+          <div class="card-body">
+            <h5 class="card-title">Task 4</h5>
+            <p class="card-text">Show pairs project random grade:</p>
+            <div class="mb-3">
+              <button type="button" class="btn btn-success my-2" onclick="showRandomGrade()">Show!</button>
+            </div>
+            <div id="task4-res"></div>
           </div>
         </div>
 

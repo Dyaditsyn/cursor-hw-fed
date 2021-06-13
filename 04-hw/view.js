@@ -1,19 +1,25 @@
 "use strict";
 
 // #1 //
-// function example(){
-//     const input = document.getElementById("max-digit-input").value;
-//     const result = document.getElementById("max-digit-res");
-//     result.innerHTML = "";
-//     let maxDigit;
-//     try{
-//         maxDigit = calcMaxDigit(input);
-//         result.classList.remove("text-danger");
-//         result.innerHTML = `The max digit is: ${maxDigit}`;
-//     }
-//     catch(error){
-//         result.classList.add("text-danger");
-//         result.innerHTML = error;
-//     }
-// }
+function showPairs(){
+    const result = document.getElementById("task1-res");
+    result.textContent = JSON.stringify(getPairs(students));
+}
 
+// #2 //
+function showPairsSubject(){
+    const result = document.getElementById("task2-res");
+    result.textContent = JSON.stringify(getPairsThemes(pairs, themes));
+}
+
+// #3 //
+function showStudentGrade(){
+    const result = document.getElementById("task3-res");
+    result.textContent = JSON.stringify(getStudentMarks(students, marks));
+}
+
+// #4 //
+function showRandomGrade(){
+    const result = document.getElementById("task4-res");
+    result.textContent = JSON.stringify(getPairsRandomMarks(pairsThemes));
+}
