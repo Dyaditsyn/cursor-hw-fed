@@ -74,7 +74,7 @@ function convertCurrency(inputCurrency) {
         if (amount < 0) {
             throw new Error(`Invalid input! Money amount better be represented with positive number`);
         }
-        convertedCurrency = (parseFloat(currency)/rate).toFixed(2) + "$";
+        convertedCurrency = +((parseFloat(currency)/rate).toFixed(2)) + "$";
     }
 
     else if ( currency.slice(-1) === "$") {
@@ -82,7 +82,7 @@ function convertCurrency(inputCurrency) {
         if (amount < 0) {
             throw new Error(`Invalid input! Money amount better be represented with positive number`);
         }
-        convertedCurrency = (parseFloat(currency)*rate).toFixed(2) + "UAH";
+        convertedCurrency = +((parseFloat(currency)*rate).toFixed(2)) + "UAH";
     }
 
     else {
@@ -123,9 +123,9 @@ function removeLetter(inputLetter, inputPhrase) {
 // #10 //
 function checkPalindrom(input) {
     const inputPhrase = inputStringValid(input);
-    return inputPhrase.split(' ').join('').split('').reverse().join('').toLowerCase() ===
-           inputPhrase.split(' ').join('').toLowerCase() ? 
-           true : false;
+    const inputStr = inputPhrase.split(' ').join('').toLowerCase();
+    const reverseStr = Array.from(inputPhrase.toLowerCase().replaceAll(' ','')).reverse().join('');
+    return reverseStr === inputStr ? true : false;
 }
 
 // #11 //

@@ -165,7 +165,7 @@ function execPalindrom() {
     try{
         isPalindrom = checkPalindrom(isPalInput);
         result.classList.remove("text-danger");
-        result.innerHTML = `Is it palinfrom? ${isPalindrom}`;
+        result.innerHTML = `Is it palindrom? ${isPalindrom}`;
     }
     catch(error){
         result.classList.add("text-danger");
