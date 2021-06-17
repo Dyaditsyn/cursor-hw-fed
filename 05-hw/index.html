@@ -23,10 +23,29 @@
           <div class="card-body">
             <h5 class="card-title">Function 1</h5>
             <p class="card-text">Array of random numbers</p>
-            <div class="mb-3">
-              <button type="button" class="btn btn-success my-2" onclick="showRandomArray()">Show!</button>
+            <div class="mb-3">              
+              <label for="length-input" class="form-label">Length:</label>
+              <input type="number" class="form-control" id="length-input" placeholder="Enter positive integer...">
+              <label for="first-limit-input" class="form-label">First limit:</label>
+              <input type="number" class="form-control" id="first-limit-input" placeholder="Enter any integer...">
+              <label for="second-limit-input" class="form-label">Second limit:</label>
+              <input type="number" class="form-control" id="second-limit-input" placeholder="Enter any integer...">
+              <button type="button" class="btn btn-success my-2" onclick="showRandomArray()">Show Array!</button>
             </div>
             <div id="random-array-res"></div>
+          </div>
+        </div>
+
+        <div class="card m-1 bg-light bg-gradient" style="width: 23rem;">
+          <div class="card-body">
+            <h5 class="card-title">Function 2</h5>
+            <p class="card-text">Find the mode of given numbers</p>
+            <div class="mb-3">              
+              <label for="mode-input" class="form-label">Please input your numbers data set separated by comma:</label>
+              <input type="text" class="form-control" id="mode-input" placeholder="Enter a numbers separated by comma">
+              <button type="button" class="btn btn-success my-2" onclick="showMode()">Show Mode!</button>
+            </div>
+            <div id="mode-res"></div>
           </div>
         </div>
 
