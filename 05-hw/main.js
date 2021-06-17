@@ -21,13 +21,7 @@ function getMode(inputStr) {
 }
 
 function calcMode(...numbers) {
-    if (!numbers.length) {
-    		throw new Error("Data Set is empty");
-    }
-    let numbersArr = [...numbers].map( number => inputNumberValid(number.toString(), "for each array element"));
-    numbersArr = numbersArr.filter ( number => number % 1 === 0);
-    																
-
+	const numbersArr = [...numbers];															
     const frequencyTable = {};
     numbersArr.forEach(elem => frequencyTable[elem] = frequencyTable[elem] + 1 || 1);
 
@@ -47,6 +41,21 @@ function calcMode(...numbers) {
         mode = 'No mode in current data set'
     }
     return mode;
+}
+
+// #3 //
+function getAverage(inputStr) {
+    const numbers = handleInput (inputStr);
+    return calcAverage(...numbers);
+}
+
+function calcAverage(...numbers) {
+    const numbersArr = [...numbers];
+    console.log(numbersArr)
+    const total = numbersArr.reduce( (total, number) => {
+        return total + Number(number);
+    }, 0);
+    return total / numbersArr.length;
 }
 
 // -------------------------------------------------------------------------------------------------------------------//

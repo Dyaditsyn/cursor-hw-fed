@@ -22,16 +22,33 @@ function showRandomArray(){
 // #2 //
 function showMode() {
     const inputStr = document.getElementById("mode-input").value;
-const result = document.getElementById("mode-res");
-result.textContent = "";
-let mode;
-try{
-    mode = getMode(inputStr);
-    result.classList.remove("text-danger");
-    result.textContent = `The mode of integers only is: ${JSON.stringify(mode, null, " ")}`;
+    const result = document.getElementById("mode-res");
+    result.textContent = "";
+    let mode;
+    try{
+        mode = getMode(inputStr);
+        result.classList.remove("text-danger");
+        result.textContent = `The mode of integers only is: ${JSON.stringify(mode, null, " ")}`;
+    }
+    catch(error){
+        result.classList.add("text-danger");
+        result.innerHTML = error;
+    }
 }
-catch(error){
-    result.classList.add("text-danger");
-    result.innerHTML = error;
-}
+
+// #3 //
+function showAverage() {
+    const inputStr = document.getElementById("ave-input").value;
+    const result = document.getElementById("ave-res");
+    result.textContent = "";
+    let average;
+    try{
+        average = getAverage(inputStr);
+        result.classList.remove("text-danger");
+        result.textContent = `The average of integers only is: ${JSON.stringify(average, null, " ")}`;
+    }
+    catch(error){
+        result.classList.add("text-danger");
+        result.innerHTML = error;
+    }
 }
