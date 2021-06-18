@@ -103,3 +103,20 @@ function showPositivesCount() {
         result.innerHTML = error;
     }
 }
+
+// #7 //
+function showDividedByFive() {
+    const inputStr = document.getElementById("devide-input").value;
+    const result = document.getElementById("devide-res");
+    result.textContent = "";
+    let devidedByFive;
+    try{
+        devidedByFive = devidedByFiveWrapper(inputStr);
+        result.classList.remove("text-danger");
+        result.textContent = `Numbers in data set is devided by five: ${JSON.stringify(devidedByFive, null, " ")}`;
+    }
+    catch(error){
+        result.classList.add("text-danger");
+        result.innerHTML = error;
+    }
+}

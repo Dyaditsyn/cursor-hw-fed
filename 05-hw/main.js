@@ -95,6 +95,15 @@ function countPositiveNumbers(...numbers) {
     }, 0);
 }
 
+// #7 //
+function devidedByFiveWrapper(inputStr) {
+    const numbers = handleInputInt (inputStr);
+    return getDividedByFive(...numbers);
+}
+
+function getDividedByFive(...numbers) {
+    return [...numbers].filter( (num) => num % 5 === 0);
+}
 
 // -------------------------------------------------------------------------------------------------------------------//
 
