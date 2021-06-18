@@ -40,12 +40,10 @@ function showMode() {
 function showAverage() {
     const inputStr = document.getElementById("ave-input").value;
     const result = document.getElementById("ave-res");
-    result.textContent = "";
-    let average;
+    result.textContent = "";;
     try{
-        average = averageWrapper(inputStr);
         result.classList.remove("text-danger");
-        result.textContent = `The average of integers only is: ${JSON.stringify(average, null, " ")}`;
+        result.textContent = `The average of integers only is: ${averageWrapper(inputStr)}`;
     }
     catch(error){
         result.classList.add("text-danger");
@@ -58,11 +56,9 @@ function showMedian() {
     const inputStr = document.getElementById("median-input").value;
     const result = document.getElementById("median-res");
     result.textContent = "";
-    let median;
     try{
-        median = medianWrapper(inputStr);
         result.classList.remove("text-danger");
-        result.textContent = `The median of integers only is: ${JSON.stringify(median, null, " ")}`;
+        result.textContent = `The median of integers only is: ${medianWrapper(inputStr)}`;
     }
     catch(error){
         result.classList.add("text-danger");
@@ -92,11 +88,9 @@ function showPositivesCount() {
     const inputStr = document.getElementById("positive-input").value;
     const result = document.getElementById("positive-res");
     result.textContent = "";
-    let positivesCount;
     try{
-        positivesCount = positivesCountWrapper(inputStr);
         result.classList.remove("text-danger");
-        result.textContent = `Amount of positive numbers in data set is: ${JSON.stringify(positivesCount, null, " ")}`;
+        result.textContent = `Amount of positive numbers in data set is: ${positivesCountWrapper(inputStr)}`;
     }
     catch(error){
         result.classList.add("text-danger");
