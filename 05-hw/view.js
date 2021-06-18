@@ -135,11 +135,11 @@ function showDividedByThree() {
     const inputStr = document.getElementById("by-tree-input").value;
     const result = document.getElementById("by-tree-res");
     result.textContent = "";
-    let devided;
+    let divided;
     try{
-        devided = devideByTreeWrapper(inputStr);
+        divided = divideByThree(inputStr);
         result.classList.remove("text-danger");
-        result.textContent = `Devided phrase is: ${JSON.stringify(devided, null, " ")}`;
+        result.textContent = `Devided phrase is: ${JSON.stringify(divided, null, " ")}`;
     }
     catch(error){
         result.classList.add("text-danger");
@@ -154,7 +154,7 @@ function showCombinations() {
     result.textContent = "";
     let combinations;
     try{
-        combinations = combinationsWrapper(inputStr);
+        combinations = generateCombinations(inputStr);
         result.classList.remove("text-danger");
         result.textContent = `Combinations are: ${JSON.stringify(combinations, null, " ")}`;
     }

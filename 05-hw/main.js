@@ -129,11 +129,18 @@ function replaceBadWords(inputStr){
 
 // #9 //
 function divideByThree(inputStr){
-    let string = inputStringValid(inputStr).split;
+    const string = inputStringValid(inputStr);
+    const word = Array.from(string.toLowerCase().replaceAll(' ',''));
+    let arrOfTree = [];
 
-    return string;
+     while (word.length > 3) {
+        const removed = word.splice(0, 3).join("");
+        arrOfTree.push(removed);
+     }
+    arrOfTree.push(word.join(""));
+
+    return arrOfTree;
 }
-
 
 // -------------------------------------------------------------------------------------------------------------------//
 
