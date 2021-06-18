@@ -16,7 +16,7 @@ function getRandomArray(inputLength, inputNum1, inputNum2) {
 // #2 //
 
 function getMode(inputStr) {
-    const numbers = handleInput (inputStr);
+    const numbers = handleInputInt (inputStr);
     return calcMode(...numbers);
 }
 
@@ -45,7 +45,7 @@ function calcMode(...numbers) {
 
 // #3 //
 function getAverage(inputStr) {
-    const numbers = handleInput (inputStr);
+    const numbers = handleInputInt (inputStr);
     return calcAverage(...numbers);
 }
 
@@ -56,6 +56,21 @@ function calcAverage(...numbers) {
         return total + Number(number);
     }, 0);
     return total / numbersArr.length;
+}
+
+// #4 //
+function getMedian(inputStr) {
+    const numbers = handleInputInt (inputStr);
+    return calcMedian(...numbers);
+}
+
+function calcMedian(...numbers) {
+    const arrSorted = [...numbers].sort( (a, b) => a - b);
+    const isArrLengthEven = !arrSorted.length % 2;
+    const evenLengthMedian = arrSorted[arrSorted.length/2 - 1] + arrSorted[arrSorted.length/2];
+    const oddLengthMedian = arrSorted[Math.floor(arrSorted.length/2)];
+
+    return isArrLengthEven ? evenLengthMedian : oddLengthMedian;
 }
 
 // -------------------------------------------------------------------------------------------------------------------//
@@ -89,12 +104,21 @@ function inputNumberValid(inputVal, clarify = "") {
 // receives: string from input in format values separated by commas
 // transforms a string to array of numbers if possible and filter it to integers only or breaks with error
 // output: array of integers
-function handleInput(inputStr) {
+function handleInputInt(inputStr) {
     if (!inputStr.length) {
     		throw new Error("Data Set is empty");
     }
     const inputArr = inputStr.split(',').map( item => inputNumberValid(item, "for each array element separated by comma"));
-    return inputArr.filter ( number => number % 1 === 0);
+    const numbersArr = inputArr.map( (item => parseFloat(item)))
+    return numbersArr.filter ( number => number % 1 === 0);
+}
+
+function handleInputNum(inputStr) {
+    if (!inputStr.length) {
+    		throw new Error("Data Set is empty");
+    }
+    const inputArr = inputStr.split(',').map( item => inputNumberValid(item, "for each array element separated by comma"));
+    return inputArr.map( (item => parseFloat(item)));
 }
 
 
