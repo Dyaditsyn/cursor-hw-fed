@@ -66,13 +66,14 @@ function getMedian(inputStr) {
 
 function calcMedian(...numbers) {
     const arrSorted = [...numbers].sort( (a, b) => a - b);
-    const isArrLengthEven = !arrSorted.length % 2;
-    const evenLengthMedian = arrSorted[arrSorted.length/2 - 1] + arrSorted[arrSorted.length/2];
+    const isArrLengthEven = arrSorted.length % 2 === 0 ;
+    const evenLengthMedian = (arrSorted[arrSorted.length/2 - 1] + arrSorted[arrSorted.length/2])/2;
     const oddLengthMedian = arrSorted[Math.floor(arrSorted.length/2)];
-
-    return isArrLengthEven ? evenLengthMedian : oddLengthMedian;
+    return isArrLengthEven ? evenLengthMedian : oddLengthMedian ;
 }
-
+console.log(calcMedian(6, 2, 55, 11, 78, 2, 55, 77, 57, 87, 23, 2, 56, 3, 2))
+console.log(calcMedian(1,2,3,4))
+console.log(calcMedian(1, 2, 3, 4, 5))
 // -------------------------------------------------------------------------------------------------------------------//
 
 // help function 
