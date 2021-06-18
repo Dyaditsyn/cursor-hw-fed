@@ -107,18 +107,30 @@ function getDividedByFive(...numbers) {
 
 // #8 //
 function replaceBadWords(inputStr){
-    let string = inputStringValid(inputStr);
+    let phrase = inputStringValid(inputStr).split(" ");
     const badWords = ["shit", "fuck"];
     let replacer = "";
 
     for (let i = 0; i < badWords.length; i++) {
-        if (string.includes(badWords[i])) {
-            for (let j = 0; j < badWords[i].length; j++) {
-                replacer += "*";
-            }
-            string = string.replace(badWords[i], replacer);
-        }    
+        for (let j = 0; j < phrase.length; j++) {
+            if (phrase[j].toLowerCase().includes(badWords[i])) {
+                for (let k = 0; k < badWords[i].length; k++) {
+                    replacer += "*";   
+                }
+                const startIndexBad = phrase[j].toLowerCase().indexOf(badWords[i]);
+                const tempBadWord = phrase[j].split("");
+                tempBadWord.splice(startIndexBad, replacer.length, replacer);
+                phrase[j] = tempBadWord.join("");
+            } 
+        }   
     }
+    return phrase.join(" ");
+}
+
+// #9 //
+function divideByThree(inputStr){
+    let string = inputStringValid(inputStr).split;
+
     return string;
 }
 
