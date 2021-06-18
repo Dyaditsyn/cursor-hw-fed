@@ -52,3 +52,20 @@ function showAverage() {
         result.innerHTML = error;
     }
 }
+
+// #4 //
+function showMedian() {
+    const inputStr = document.getElementById("median-input").value;
+    const result = document.getElementById("median-res");
+    result.textContent = "";
+    let median;
+    try{
+        median = getMedian(inputStr);
+        result.classList.remove("text-danger");
+        result.textContent = `The median of integers only is: ${JSON.stringify(median, null, " ")}`;
+    }
+    catch(error){
+        result.classList.add("text-danger");
+        result.innerHTML = error;
+    }
+}
