@@ -120,3 +120,52 @@ function showDividedByFive() {
         result.innerHTML = error;
     }
 }
+
+// #8 //
+function showReplacedBadWords() {
+    const inputStr = document.getElementById("bad-word-input").value;
+    const result = document.getElementById("bad-word-res");
+    result.textContent = "";
+    try{
+        result.classList.remove("text-danger");
+        result.textContent = replaceBadWords(inputStr);
+    }
+    catch(error){
+        result.classList.add("text-danger");
+        result.innerHTML = error;
+    }
+}
+
+// #9 //
+function showDividedByThree() {
+    const inputStr = document.getElementById("by-tree-input").value;
+    const result = document.getElementById("by-tree-res");
+    result.textContent = "";
+    let devided;
+    try{
+        devided = devideByTreeWrapper(inputStr);
+        result.classList.remove("text-danger");
+        result.textContent = `Devided phrase is: ${JSON.stringify(devided, null, " ")}`;
+    }
+    catch(error){
+        result.classList.add("text-danger");
+        result.innerHTML = error;
+    }
+}
+
+// #10 //
+function showCombinations() {
+    const inputStr = document.getElementById("combinations-input").value;
+    const result = document.getElementById("combinations-res");
+    result.textContent = "";
+    let combinations;
+    try{
+        combinations = combinationsWrapper(inputStr);
+        result.classList.remove("text-danger");
+        result.textContent = `Combinations are: ${JSON.stringify(combinations, null, " ")}`;
+    }
+    catch(error){
+        result.classList.add("text-danger");
+        result.innerHTML = error;
+    }
+}

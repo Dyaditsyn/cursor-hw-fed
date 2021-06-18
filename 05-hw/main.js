@@ -105,6 +105,24 @@ function getDividedByFive(...numbers) {
     return [...numbers].filter( (num) => num % 5 === 0);
 }
 
+// #8 //
+function replaceBadWords(inputStr){
+    let string = inputStringValid(inputStr);
+    const badWords = ["shit", "fuck"];
+    let replacer = "";
+
+    for (let i = 0; i < badWords.length; i++) {
+        if (string.includes(badWords[i])) {
+            for (let j = 0; j < badWords[i].length; j++) {
+                replacer += "*";
+            }
+            string = string.replace(badWords[i], replacer);
+        }    
+    }
+    return string;
+}
+
+
 // -------------------------------------------------------------------------------------------------------------------//
 
 // help function 
@@ -154,6 +172,12 @@ function handleInputNum(inputStr) {
     return numbersArr;
 }
 
-
+// check string for empty input
+function inputStringValid(inputVal) {
+    if ( !(inputVal && inputVal.trim().length)  ) {
+        throw new Error(`Invalid input! Field can not be empty`);
+    }
+    return inputVal;
+}
         
 
