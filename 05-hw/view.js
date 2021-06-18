@@ -86,3 +86,20 @@ function showFilteredEven() {
         result.innerHTML = error;
     }
 }
+
+// #6 //
+function showPositivesCount() {
+    const inputStr = document.getElementById("positive-input").value;
+    const result = document.getElementById("positive-res");
+    result.textContent = "";
+    let positivesCount;
+    try{
+        positivesCount = positivesCountWrapper(inputStr);
+        result.classList.remove("text-danger");
+        result.textContent = `Amount of positive numbers in data set is: ${JSON.stringify(positivesCount, null, " ")}`;
+    }
+    catch(error){
+        result.classList.add("text-danger");
+        result.innerHTML = error;
+    }
+}

@@ -51,7 +51,6 @@ function averageWrapper(inputStr) {
 
 function getAverage(...numbers) {
     const numbersArr = [...numbers];
-    console.log(numbersArr)
     const total = numbersArr.reduce( (total, number) => {
         return total + Number(number);
     }, 0);
@@ -82,6 +81,20 @@ function filterEvenWrapper(inputStr) {
 function filterEvenNumbers(...numbers) {
     return [...numbers.filter( (num) => num % 2)];
 }
+
+// #6 //
+function positivesCountWrapper(inputStr) {
+    const numbers = handleInputNum (inputStr);
+    
+    return countPositiveNumbers(...numbers);
+}
+
+function countPositiveNumbers(...numbers) {
+    return [...numbers].reduce( (count, num) => {
+        return num > 0 ? count + 1 : count;
+    }, 0);
+}
+
 
 // -------------------------------------------------------------------------------------------------------------------//
 
@@ -128,7 +141,8 @@ function handleInputNum(inputStr) {
     		throw new Error("Data Set is empty");
     }
     const inputArr = inputStr.split(',').map( item => inputNumberValid(item, "for each array element separated by comma"));
-    return inputArr.map( (item => parseFloat(item)));
+    const numbersArr = inputArr.map( (item => parseFloat(item)))
+    return numbersArr;
 }
 
 
