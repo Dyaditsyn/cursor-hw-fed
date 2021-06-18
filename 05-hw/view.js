@@ -26,7 +26,7 @@ function showMode() {
     result.textContent = "";
     let mode;
     try{
-        mode = getMode(inputStr);
+        mode = modeWrapper(inputStr);
         result.classList.remove("text-danger");
         result.textContent = `The mode of integers only is: ${JSON.stringify(mode, null, " ")}`;
     }
@@ -43,7 +43,7 @@ function showAverage() {
     result.textContent = "";
     let average;
     try{
-        average = getAverage(inputStr);
+        average = averageWrapper(inputStr);
         result.classList.remove("text-danger");
         result.textContent = `The average of integers only is: ${JSON.stringify(average, null, " ")}`;
     }
@@ -60,9 +60,26 @@ function showMedian() {
     result.textContent = "";
     let median;
     try{
-        median = getMedian(inputStr);
+        median = medianWrapper(inputStr);
         result.classList.remove("text-danger");
         result.textContent = `The median of integers only is: ${JSON.stringify(median, null, " ")}`;
+    }
+    catch(error){
+        result.classList.add("text-danger");
+        result.innerHTML = error;
+    }
+}
+
+// #5 //
+function showFilteredEven() {
+    const inputStr = document.getElementById("even-input").value;
+    const result = document.getElementById("even-res");
+    result.textContent = "";
+    let filteredArr;
+    try{
+        filteredArr = filterEvenWrapper(inputStr);
+        result.classList.remove("text-danger");
+        result.textContent = `Your data filtered out even numbers: ${JSON.stringify(filteredArr, null, " ")}`;
     }
     catch(error){
         result.classList.add("text-danger");

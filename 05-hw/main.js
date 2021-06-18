@@ -15,12 +15,12 @@ function getRandomArray(inputLength, inputNum1, inputNum2) {
 
 // #2 //
 
-function getMode(inputStr) {
+function modeWrapper(inputStr) {
     const numbers = handleInputInt (inputStr);
-    return calcMode(...numbers);
+    return getMode(...numbers);
 }
 
-function calcMode(...numbers) {
+function getMode(...numbers) {
 	const numbersArr = [...numbers];															
     const frequencyTable = {};
     numbersArr.forEach(elem => frequencyTable[elem] = frequencyTable[elem] + 1 || 1);
@@ -44,12 +44,12 @@ function calcMode(...numbers) {
 }
 
 // #3 //
-function getAverage(inputStr) {
+function averageWrapper(inputStr) {
     const numbers = handleInputInt (inputStr);
-    return calcAverage(...numbers);
+    return getAverage(...numbers);
 }
 
-function calcAverage(...numbers) {
+function getAverage(...numbers) {
     const numbersArr = [...numbers];
     console.log(numbersArr)
     const total = numbersArr.reduce( (total, number) => {
@@ -59,21 +59,30 @@ function calcAverage(...numbers) {
 }
 
 // #4 //
-function getMedian(inputStr) {
+function medianWrapper(inputStr) {
     const numbers = handleInputInt (inputStr);
-    return calcMedian(...numbers);
+    return getMedian(...numbers);
 }
 
-function calcMedian(...numbers) {
+function getMedian(...numbers) {
     const arrSorted = [...numbers].sort( (a, b) => a - b);
     const isArrLengthEven = arrSorted.length % 2 === 0 ;
     const evenLengthMedian = (arrSorted[arrSorted.length/2 - 1] + arrSorted[arrSorted.length/2])/2;
     const oddLengthMedian = arrSorted[Math.floor(arrSorted.length/2)];
+
     return isArrLengthEven ? evenLengthMedian : oddLengthMedian ;
 }
-console.log(calcMedian(6, 2, 55, 11, 78, 2, 55, 77, 57, 87, 23, 2, 56, 3, 2))
-console.log(calcMedian(1,2,3,4))
-console.log(calcMedian(1, 2, 3, 4, 5))
+
+// #5 //
+function filterEvenWrapper(inputStr) {
+    const numbers = handleInputInt (inputStr);
+    return filterEvenNumbers(...numbers);
+}
+
+function filterEvenNumbers(...numbers) {
+    return [...numbers.filter( (num) => num % 2)];
+}
+
 // -------------------------------------------------------------------------------------------------------------------//
 
 // help function 
