@@ -142,6 +142,35 @@ function divideByThree(inputStr){
     return arrOfTree;
 }
 
+// #10 //
+function generateCombinations(inputStr) {
+    const string = inputStringValid(inputStr);
+    const word = string.trim().split(" ").join("");
+    if (word.length > 10) {
+        throw new Error("Invalid input! Please enter a word up to ten letters")
+    }
+    if (word.length === 1 ) {
+        return [word];
+    }
+
+    let combinations = [];
+
+    for (let i = 0; i < word.length; i++) {
+    
+        let char = word[i];
+        if (word.indexOf(char) !== i) {
+            continue;
+        }
+
+        let remainingStr = word.slice(0, i) + word.slice(i + 1, word.length);
+
+        for (let subWord of generateCombinations(remainingStr)) {
+            combinations.push(char + subWord) ;
+        }
+    }
+    return combinations;
+}
+
 // -------------------------------------------------------------------------------------------------------------------//
 
 // help function 
