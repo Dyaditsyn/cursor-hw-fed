@@ -68,10 +68,18 @@ const getBestStudent = (students) => {
 }
 
 // #6 //
-
+const calculateWordLetters = (inputWord) => {
+    const word = inputStringValid(inputWord).split(" ").join("");
+    const lettersCount = {}
+    for (let i = 0; i < word.length; i++) {
+        lettersCount[word[i]] ? lettersCount[word[i]] += 1 : lettersCount[word[i]] = 1
+    }
+    return lettersCount;
+}
 
 
 // ------------------------------------------------------------------------------------------------------------------ //
+
 
 function capitalizeName(value) {
     return value.charAt(0).toUpperCase() + value.slice(1).toLowerCase();
@@ -85,3 +93,9 @@ function getAverage(...numbers) {
     return total / numbersArr.length;
 }
 
+function inputStringValid(inputVal) {
+    if ( !(inputVal && inputVal.trim().length)  ) {
+        throw new Error(`Invalid input! Field can not be empty`);
+    }
+    return inputVal.trim();
+}

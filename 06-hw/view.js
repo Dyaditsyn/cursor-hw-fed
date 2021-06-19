@@ -80,3 +80,17 @@ function showBestStudent(){
 }
 
 // #6 //
+function showWordLetters(){
+    const inputStr = document.getElementById("word-input").value;
+    const result = document.getElementById("word-res");
+    result.textContent = "";
+    try{
+        result.classList.remove("text-danger");
+        result.textContent = `Letters frequency table of word "${inputStr}": 
+        ${JSON.stringify(calculateWordLetters(inputStr), null, " ")}`;
+    }
+    catch(error){
+        result.classList.add("text-danger");
+        result.innerHTML = error;
+    }
+}
