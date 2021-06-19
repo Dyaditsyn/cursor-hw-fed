@@ -27,9 +27,21 @@ const students = [{
   }];
 
 // #1 //
+const getSubjects = (i) => {
+    if ( isNaN(i) ) {
+        throw new Error("Please select a student from the list to see subjects!");
+    }
+    return Object.keys(students[i].subjects)
+                        .map( subject => 
+                        capitalizeName(subject).replace("_", " ") )};
 
+                        
 
 // ------------------------------------------------------------------------------------------------------------------ //
+
+function capitalizeName(value) {
+    return value.charAt(0).toUpperCase() + value.slice(1).toLowerCase();
+}
 
 function getAverage(...numbers) {
     const numbersArr = [...numbers];

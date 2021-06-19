@@ -22,82 +22,86 @@
         <div class="card m-1 bg-light bg-gradient" style="width: 23rem;">
           <div class="card-body">
             <h5 class="card-title">Function 1</h5>
-            <p class="card-text">Array of random numbers</p>
+            <p class="card-text">List of subject of specific student</p>
             <div class="mb-3">              
-              <label for="length-input" class="form-label">Length:</label>
-              <input type="number" class="form-control" id="length-input" placeholder="Enter positive integer...">
-              <label for="first-limit-input" class="form-label">First limit:</label>
-              <input type="number" class="form-control" id="first-limit-input" placeholder="Enter any integer...">
-              <label for="second-limit-input" class="form-label">Second limit:</label>
-              <input type="number" class="form-control" id="second-limit-input" placeholder="Enter any integer...">
-              <button type="button" class="btn btn-success my-2" onclick="showRandomArray()">Show Array!</button>
+              <select id="subjects" class="form-select form-select-lg py-1" aria-label="Default select example">
+                <option selected>Select student</option>
+                <option value="0">Tanya</option>
+                <option value="1">Victor</option>
+                <option value="2">Anton</option>
+              </select>
+              <button type="button" class="btn btn-success my-2" onclick="showSubjects()">Show Subjects!</button>
             </div>
-            <div id="random-array-res"></div>
+            <div id="subjects-res"></div>
           </div>
         </div>
 
         <div class="card m-1 bg-light bg-gradient" style="width: 23rem;">
           <div class="card-body">
             <h5 class="card-title">Function 2</h5>
-            <p class="card-text">Calc the mode of given numbers</p>
+            <p class="card-text">Average mark of specific student</p>
             <div class="mb-3">              
-              <label for="mode-input" class="form-label">Please input your numbers data set separated by comma:</label>
-              <input type="text" class="form-control" id="mode-input" placeholder="Enter a numbers separated by comma...">
-              <button type="button" class="btn btn-success my-2" onclick="showMode()">Show Mode!</button>
+              <select id="" class="form-select form-select-lg py-1" aria-label="Default select example">
+                <option selected>Select student</option>
+                <option value="1">Tanya</option>
+                <option value="2">Victor</option>
+                <option value="3">Anton</option>
+              </select>
+              <button type="button" class="btn btn-success my-2" onclick="showMark()">Show Average!</button>
             </div>
-            <div id="mode-res"></div>
+            <div id="mark-res"></div>
           </div>
         </div>
 
         <div class="card m-1 bg-light bg-gradient" style="width: 23rem;">
           <div class="card-body">
             <h5 class="card-title">Function 3</h5>
-            <p class="card-text">Calc the average of given numbers</p>
+            <p class="card-text">Info about specific student</p>
             <div class="mb-3">              
-              <label for="ave-input" class="form-label">Please input your numbers data set separated by comma:</label>
-              <input type="text" class="form-control" id="ave-input" placeholder="Enter a numbers separated by comma...">
-              <button type="button" class="btn btn-success my-2" onclick="showAverage()">Show Average!</button>
+              <select class="form-select form-select-lg py-1" aria-label="Default select example">
+                <option selected>Select student</option>
+                <option value="1">Tanya</option>
+                <option value="2">Victor</option>
+                <option value="3">Anton</option>
+              </select>
+              <button type="button" class="btn btn-success my-2" onclick="showMark()">Show Info!</button>
             </div>
-            <div id="ave-res"></div>
+            <div id="info-res"></div>
           </div>
         </div>
 
         <div class="card m-1 bg-light bg-gradient" style="width: 23rem;">
           <div class="card-body">
             <h5 class="card-title">Function 4</h5>
-            <p class="card-text">Calc the median of given numbers</p>
+            <p class="card-text">Press the button to see list of students in alphabetical order</p>
             <div class="mb-3">              
-              <label for="median-input" class="form-label">Please input your numbers data set separated by comma:</label>
-              <input type="text" class="form-control" id="median-input" placeholder="Enter a numbers separated by comma...">
-              <button type="button" class="btn btn-success my-2" onclick="showMedian()">Show Median!</button>
+              <button type="button" class="btn btn-success my-2" onclick="showList()">Show List!</button>
             </div>
-            <div id="median-res"></div>
+            <div id="list-res"></div>
           </div>
         </div>
 
         <div class="card m-1 bg-light bg-gradient" style="width: 23rem;">
           <div class="card-body">
             <h5 class="card-title">Function 5</h5>
-            <p class="card-text">Filter Even Numbers</p>
+            <p class="card-text">Show student with highest average mark</p>
             <div class="mb-3">              
-              <label for="even-input" class="form-label">Please input your numbers data set separated by comma:</label>
-              <input type="text" class="form-control" id="even-input" placeholder="Enter a numbers separated by comma...">
-              <button type="button" class="btn btn-success my-2" onclick="showFilteredEven()">Show odds only!</button>
+              <button type="button" class="btn btn-success my-2" onclick="showBestStudent()">Show the Best!</button>
             </div>
-            <div id="even-res"></div>
+            <div id="best-res"></div>
           </div>
         </div>
 
         <div class="card m-1 bg-light bg-gradient" style="width: 23rem;">
           <div class="card-body">
             <h5 class="card-title">Function 6</h5>
-            <p class="card-text">Filter Even Numbers</p>
+            <p class="card-text">Objest of letter repetitions in the word</p>
             <div class="mb-3">              
-              <label for="even-input" class="form-label">Please input your numbers data set separated by comma:</label>
-              <input type="text" class="form-control" id="even-input" placeholder="Enter a numbers separated by comma...">
-              <button type="button" class="btn btn-success my-2" onclick="showFilteredEven()">Show odds only!</button>
+              <label for="word-input" class="form-label">Word:</label>
+              <input type="text" class="form-control" id="word-input" placeholder="Enter a word...">
+              <button type="button" class="btn btn-success my-2" onclick="showWordLetters()">Show object!</button>
             </div>
-            <div id="even-res"></div>
+            <div id="word-res"></div>
           </div>
         </div>
 
