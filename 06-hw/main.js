@@ -27,15 +27,35 @@ const students = [{
   }];
 
 // #1 //
-const getSubjects = (i) => {
-    if ( isNaN(i) ) {
+const getSubjects = (studentIndex) => {
+    if ( isNaN(studentIndex) ) {
         throw new Error("Please select a student from the list to see subjects!");
     }
-    return Object.keys(students[i].subjects)
-                        .map( subject => 
-                        capitalizeName(subject).replace("_", " ") )};
+    return Object.keys(students[studentIndex].subjects).map( subject => 
+            capitalizeName(subject).replace("_", " ") );
+}
 
                         
+// #2 //
+const getAverageMark = (studentIndex) => {
+    if ( isNaN(studentIndex) ) {
+        throw new Error("Please select a student from the list to see subjects!");
+    }
+    const studentMarks = Object.values(students[studentIndex].subjects).join(",").split(",");
+    return Number(getAverage(...studentMarks).toFixed(2));
+}
+
+// #3 //
+const getStudentInfo = (studentIndex) => {
+    if ( isNaN(studentIndex) ) {
+        throw new Error("Please select a student from the list to see subjects!");
+    }
+    const {name, course} = students[studentIndex];
+    const studentInfo = {name, course};
+    studentInfo.averageMark = getAverageMark(studentIndex);
+
+    return studentInfo;
+}
 
 // ------------------------------------------------------------------------------------------------------------------ //
 

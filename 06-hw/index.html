@@ -24,7 +24,7 @@
             <h5 class="card-title">Function 1</h5>
             <p class="card-text">List of subject of specific student</p>
             <div class="mb-3">              
-              <select id="subjects" class="form-select form-select-lg py-1" aria-label="Default select example">
+              <select id="subjects" class="form-select form-select-lg py-1">
                 <option selected>Select student</option>
                 <option value="0">Tanya</option>
                 <option value="1">Victor</option>
@@ -41,11 +41,11 @@
             <h5 class="card-title">Function 2</h5>
             <p class="card-text">Average mark of specific student</p>
             <div class="mb-3">              
-              <select id="" class="form-select form-select-lg py-1" aria-label="Default select example">
+              <select id="mark" class="form-select form-select-lg py-1">
                 <option selected>Select student</option>
-                <option value="1">Tanya</option>
-                <option value="2">Victor</option>
-                <option value="3">Anton</option>
+                <option value="0">Tanya</option>
+                <option value="1">Victor</option>
+                <option value="2">Anton</option>
               </select>
               <button type="button" class="btn btn-success my-2" onclick="showMark()">Show Average!</button>
             </div>
@@ -58,13 +58,13 @@
             <h5 class="card-title">Function 3</h5>
             <p class="card-text">Info about specific student</p>
             <div class="mb-3">              
-              <select class="form-select form-select-lg py-1" aria-label="Default select example">
+              <select id="info" class="form-select form-select-lg py-1">
                 <option selected>Select student</option>
-                <option value="1">Tanya</option>
-                <option value="2">Victor</option>
-                <option value="3">Anton</option>
+                <option value="0">Tanya</option>
+                <option value="1">Victor</option>
+                <option value="2">Anton</option>
               </select>
-              <button type="button" class="btn btn-success my-2" onclick="showMark()">Show Info!</button>
+              <button type="button" class="btn btn-success my-2" onclick="showInfo()">Show Info!</button>
             </div>
             <div id="info-res"></div>
           </div>
