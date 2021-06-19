@@ -50,3 +50,33 @@ function showInfo(){
         result.innerHTML = error;
     }
 }
+
+// #4 //
+function showList(){
+    const result = document.getElementById("list-res");
+    result.textContent = "";
+    try{
+        result.classList.remove("text-danger");
+        result.textContent = `Sorted students names: ${JSON.stringify(getStudentsNames(students), null, " ")}`;
+    }
+    catch(error){
+        result.classList.add("text-danger");
+        result.innerHTML = error;
+    }
+}
+
+// #5 //
+function showBestStudent(){
+    const result = document.getElementById("best-res");
+    result.textContent = "";
+    try{
+        result.classList.remove("text-danger");
+        result.textContent = `Student with highest average is: ${getBestStudent(students)}`;
+    }
+    catch(error){
+        result.classList.add("text-danger");
+        result.innerHTML = error;
+    }
+}
+
+// #6 //

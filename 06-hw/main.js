@@ -57,6 +57,20 @@ const getStudentInfo = (studentIndex) => {
     return studentInfo;
 }
 
+// #4 //
+const getStudentsNames = (students) => students.map( student => student.name).sort();
+
+// #5 //
+const getBestStudent = (students) => {
+    const averages = students.map( (student, index) => getAverageMark(index));
+    const bestAverage = Math.max(...averages);
+    return students[averages.indexOf(bestAverage)].name;
+}
+
+// #6 //
+
+
+
 // ------------------------------------------------------------------------------------------------------------------ //
 
 function capitalizeName(value) {
