@@ -1,0 +1,117 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <title>Homework #06 Objects</title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="style.css">
+</head>
+  <body>
+
+    <div class="container my-2">
+      <header class="mb-3 text-center">
+        <h1>Homework #06 Objects</h1>
+        <h3>By Vyacheslav Dyaditsyn</h3>
+      </header>
+      <main class="row justify-content-center">
+
+        <div class="card m-1 bg-light bg-gradient" style="width: 23rem;">
+          <div class="card-body">
+            <h5 class="card-title">Function 1</h5>
+            <p class="card-text">Array of random numbers</p>
+            <div class="mb-3">              
+              <label for="length-input" class="form-label">Length:</label>
+              <input type="number" class="form-control" id="length-input" placeholder="Enter positive integer...">
+              <label for="first-limit-input" class="form-label">First limit:</label>
+              <input type="number" class="form-control" id="first-limit-input" placeholder="Enter any integer...">
+              <label for="second-limit-input" class="form-label">Second limit:</label>
+              <input type="number" class="form-control" id="second-limit-input" placeholder="Enter any integer...">
+              <button type="button" class="btn btn-success my-2" onclick="showRandomArray()">Show Array!</button>
+            </div>
+            <div id="random-array-res"></div>
+          </div>
+        </div>
+
+        <div class="card m-1 bg-light bg-gradient" style="width: 23rem;">
+          <div class="card-body">
+            <h5 class="card-title">Function 2</h5>
+            <p class="card-text">Calc the mode of given numbers</p>
+            <div class="mb-3">              
+              <label for="mode-input" class="form-label">Please input your numbers data set separated by comma:</label>
+              <input type="text" class="form-control" id="mode-input" placeholder="Enter a numbers separated by comma...">
+              <button type="button" class="btn btn-success my-2" onclick="showMode()">Show Mode!</button>
+            </div>
+            <div id="mode-res"></div>
+          </div>
+        </div>
+
+        <div class="card m-1 bg-light bg-gradient" style="width: 23rem;">
+          <div class="card-body">
+            <h5 class="card-title">Function 3</h5>
+            <p class="card-text">Calc the average of given numbers</p>
+            <div class="mb-3">              
+              <label for="ave-input" class="form-label">Please input your numbers data set separated by comma:</label>
+              <input type="text" class="form-control" id="ave-input" placeholder="Enter a numbers separated by comma...">
+              <button type="button" class="btn btn-success my-2" onclick="showAverage()">Show Average!</button>
+            </div>
+            <div id="ave-res"></div>
+          </div>
+        </div>
+
+        <div class="card m-1 bg-light bg-gradient" style="width: 23rem;">
+          <div class="card-body">
+            <h5 class="card-title">Function 4</h5>
+            <p class="card-text">Calc the median of given numbers</p>
+            <div class="mb-3">              
+              <label for="median-input" class="form-label">Please input your numbers data set separated by comma:</label>
+              <input type="text" class="form-control" id="median-input" placeholder="Enter a numbers separated by comma...">
+              <button type="button" class="btn btn-success my-2" onclick="showMedian()">Show Median!</button>
+            </div>
+            <div id="median-res"></div>
+          </div>
+        </div>
+
+        <div class="card m-1 bg-light bg-gradient" style="width: 23rem;">
+          <div class="card-body">
+            <h5 class="card-title">Function 5</h5>
+            <p class="card-text">Filter Even Numbers</p>
+            <div class="mb-3">              
+              <label for="even-input" class="form-label">Please input your numbers data set separated by comma:</label>
+              <input type="text" class="form-control" id="even-input" placeholder="Enter a numbers separated by comma...">
+              <button type="button" class="btn btn-success my-2" onclick="showFilteredEven()">Show odds only!</button>
+            </div>
+            <div id="even-res"></div>
+          </div>
+        </div>
+
+        <div class="card m-1 bg-light bg-gradient" style="width: 23rem;">
+          <div class="card-body">
+            <h5 class="card-title">Function 6</h5>
+            <p class="card-text">Filter Even Numbers</p>
+            <div class="mb-3">              
+              <label for="even-input" class="form-label">Please input your numbers data set separated by comma:</label>
+              <input type="text" class="form-control" id="even-input" placeholder="Enter a numbers separated by comma...">
+              <button type="button" class="btn btn-success my-2" onclick="showFilteredEven()">Show odds only!</button>
+            </div>
+            <div id="even-res"></div>
+          </div>
+        </div>
+
+      </div>
+
+    </main>
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+    
+    <script src="main.js"></script>
+    <script src="view.js"></script>
+</body>
+</html>
