@@ -22,19 +22,18 @@
         <div class="card m-1 bg-light bg-gradient" style="width: 35rem;">
           <div class="card-body">
             <h5 class="card-title">Function 1</h5>
-            <p class="card-text">Your taxes according to country</p>
+            <p class="card-text">Your taxes according to your country</p>
             <div class="mb-3">   
               <div class="form-group">
                 <label for="salary">Salary</label>
-                <input type="password" class="form-control" id="salary" placeholder="Input your salary">
+                <input type="number" class="form-control" id="salary" placeholder="Input your salary">
               </div>           
               <select id="taxes" class="form-select form-select-lg py-1">
                 <option selected>Select country</option>
-                <option value="ua">Ukraine</option>
-                <option value="lv">Latvia</option>
-                <option value="lt">Litva</option>
+                <option value="ukraine">Ukraine</option>
+                <option value="latvia">Latvia</option>
+                <option value="litva">Litva</option>
               </select>
-              <input/>
               <button type="button" class="btn btn-success my-2" onclick="showMyTaxes()">Show Your Taxes!</button>
             </div>
             <div id="taxes-res"></div>
@@ -44,13 +43,13 @@
         <div class="card m-1 bg-light bg-gradient" style="width: 35rem;">
           <div class="card-body">
             <h5 class="card-title">Function 2</h5>
-            <p class="card-text">MIddle taxes for IT-cpecialists per country</p>
+            <p class="card-text">MIddle taxes for IT-specialists per country</p>
             <div class="mb-3">              
               <select id="middle" class="form-select form-select-lg py-1">
                 <option selected>Select country</option>
-                <option value="ua">Ukraine</option>
-                <option value="lv">Latvia</option>
-                <option value="lt">Litva</option>
+                <option value="ukraine">Ukraine</option>
+                <option value="latvia">Latvia</option>
+                <option value="litva">Litva</option>
               </select>
               <button type="button" class="btn btn-success my-2" onclick="showMiddleTaxes()">Show Middle Taxes!</button>
             </div>
@@ -65,9 +64,9 @@
             <div class="mb-3">              
               <select id="total" class="form-select form-select-lg py-1">
                 <option selected>Select country</option>
-                <option value="ua">Ukraine</option>
-                <option value="lv">Latvia</option>
-                <option value="lt">Litva</option>
+                <option value="ukraine">Ukraine</option>
+                <option value="latvia">Latvia</option>
+                <option value="litva">Litva</option>
               </select>
               <button type="button" class="btn btn-success my-2" onclick="showTotalTaxes()">Show Total Taxes!</button>
             </div>
@@ -78,13 +77,13 @@
         <div class="card m-1 bg-light bg-gradient" style="width: 35rem;">
           <div class="card-body">
             <h5 class="card-title">Function 4</h5>
-            <p class="card-text">Calculates profit per country on random salary</p>
+            <p class="card-text">Calculate profit per country on random salary in limits 1500 - 2000 and populate an object includes salary, taxes and profit</p>
             <div class="mb-3">
               <select id="profit" class="form-select form-select-lg py-1">
                 <option selected>Select country</option>
-                <option value="ua">Ukraine</option>
-                <option value="lv">Latvia</option>
-                <option value="lt">Litva</option>
+                <option value="ukraine">Ukraine</option>
+                <option value="latvia">Latvia</option>
+                <option value="litva">Litva</option>
               </select>            
               <button type="button" class="btn btn-success my-2" onclick="showProfit()">Show Profit!</button>
             </div>
