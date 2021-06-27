@@ -37,34 +37,53 @@ class Student {
         const total = this.marksArr.reduce( (total, mark) => {
             return total + mark;
         }, 0);
-        return total / this.marksArr.length;
+        return total ? total / this.marksArr.length : 0;
     }
 
     dismiss() {
         this.isDismissed = true;
-        setTimeout(() => { clearInterval(this.scolarshipTimer); }, 10);
+        console.warn(`Student ${this.fullName} dismissed now`);
     }
 
     recover() {
         this.isDismissed = false;
+        console.warn (`Student ${this.fullName} recovered now`);
     }
 }
 
 class BudgetStudent extends Student {
     constructor (university, course, fullName){
         super(university, course, fullName);
+        this.intervalId = null;
+    }
+
+    clearInterval(){    
+        if(this.intervalId){
+          clearInterval(this.intervalId);
+        }
+    }
+
+    dismiss(){
+        super.dismiss();
+        this.clearInterval();
     }
 
     getScolrarship() {
+        this.clearInterval();
+
         if (this.isDismissed) {
-            return console.error(`Student ${this.fullName} is dismissed`);
+            return console.error(`Student ${this.fullName} is dismissed, no scolarship info found`);
         }
-        else if (this.getAverageMark() < 4.0) {
-            return console.error(`Your average is ${this.getAverageMark()}. Minimum of 4.0 is needed to get Scolarship`);
+        if (this.getAverageMark() < 4.0 || !!this.getAverageMark() === false) {
+            return console.error(`Your average is ${this.getAverageMark()}. Minimum of 4.0 needed to get scolarship`);
         }
-        else {
+        if (!this.isDismissed && this.getAverageMark() >= 4.0) {
             console.log('You received 1400UAH scolarship');
-            const scolarshipTimer = setInterval ( () => console.log('You received 1400UAH scolarship'), 30000);
-            setTimeout(() => { clearInterval(scolarshipTimer); }, 120000);}
+            this.intervalId = setInterval ( () => console.log('You received 1400UAH scolarship'), 30000);
+            setTimeout(() => clearInterval(this.intervalId), 150000);
+            return;
         }
+        return console.error(`Student ${this.fullName} scolarship entitlement info not found`);
     }
+    
+}

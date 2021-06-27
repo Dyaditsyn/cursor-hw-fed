@@ -1,60 +1,81 @@
 "use strict";
 
-// BASIC
+console.group("BASIC part");
 
-// 1. У стдентів повинні бути наступні властивості: university, course, fullName, вони передаються при створенні студента(в конструктор).
-const student = new Student("Odessa Psychoterapy High School", "1st", "Ostap Bender")
-console.log('new student instance creating', student)
+console.group("Prints a new instance of Student object");
+const student = new Student("Odessa Psychoterapy High School", "1st", "Ostap Bender");
+console.log(student);
+console.groupEnd();
 
-// 2. Створіть метод this.getInfo() -> "Студент 1го курсу Вищої Школи Психотерапії м.Одеса, Остап Родоманський Бендер", метод повертає сукупну інформацію про курс, учбовий заклад та імені студента.
-console.log('student: ', student.getInfo());
+console.group("Prints info about our student in format of getInfo function");
+console.log(`our student info: `, student.getInfo());
+console.groupEnd();
 
-// 3.Створіть геттер оцінок this.marks, який повертає масив оцінок студента [5, 4, 4, 5]
+console.group("Define an array of student marks and getting it using getter");
 student.marksArr = [5, 4, 4, 5];
-console.log('student marks before set: ', student.marks);
+console.log('Original student marks: ', student.marks);
+console.groupEnd();
 
-// 4. Створіть сеттер оцінок this.marks = 5, який дозволяє поставити оцінку студенту. Після того, як оцінка поставлена, геттер повинен повернути масив this.marks -> [5, 4, 4, 5, 5]
+console.group("Adding a new mark using setter and getting updated marks with getter");
 student.marks = 5;
-console.log('student marks after set: ', student.marks);
+console.log('Student marks after adding new one: ', student.marks);
+console.groupEnd();
 
-// 5. Створіть метод отримання середнього балу this.getAverageMark() -> 4.6
-console.log('student average: ', student.getAverageMark());
+console.group("Adding a method calculates an average of marks");
+console.log('Student average: ', student.getAverageMark());
+console.groupEnd();
 
-// 6. Створіть метод this.dismiss, який "виключить" студента. Після виклику цього методу – ставити студенту оцінки та отримувати їх більше не можна. (Ніяких помилок, просто повертається завжди null замість масиву оцінок)
+console.group("Creating Dismiss student method and testing it");
 student.dismiss();
-console.log('dismissed student marks: ', student.marks);
+console.log('Dismissed student marks, trying to see using getter: ', student.marks);
 student.marks = 2;
-console.log('dismissed student marks, trying to set new mark: ', student.marks);
-console.log('trying to get the average mark of dismissed student: ', student.getAverageMark());
-console.log('trying to get the info about dismissed student: ', student.getInfo());
+console.log('Dismissed student marks, trying to add new mark: ', student.marks);
+console.log('Trying to get an average mark of dismissed student: ', student.getAverageMark());
+console.log('Trying to get the info about dismissed student: ', student.getInfo());
+console.groupEnd();
 
-// 7. Створіть метод this.recover, який дозволить поновити студента
+console.group("Creating Recover student method and testing it");
 student.recover();
-console.log('recovered student marks: ', student.marks);
-console.log('check average mark of recovered student: ', student.getAverageMark());
-console.log('check info about recovered student: ', student.getInfo());
+console.log('Recovered student marks: ', student.marks);
+console.log('Check average mark of recovered student: ', student.getAverageMark());
+console.log('Check info about recovered student: ', student.getInfo());
+console.groupEnd();
 
-// ADVANCED
+console.groupEnd();
 
-// 1. Створіть новий клас BudgetStudent, який повністю наслідує клас Student
+
+console.group("ADVANCED part");
+
+console.group("Creating a new BudgetStudent class inherits original Student class and creating a new instance of budgetStudent object");
 const budgetStudent = new BudgetStudent('Odessa Psychoterapy High School', '1st', 'Ostap Bender');
-console.log('new budget student instance creating', budgetStudent);
+console.log(budgetStudent);
+console.groupEnd();
 
-// 2-5. Бюджетний студент може отримати стипендію за допомогою методу this.getScholarship. Отримання стипендії супроводжується виведенням інформації в консоль: Ви отримали 1400 грн. стипендії
-// Метод отримання стипендії автоматично викликається кожні 30 секунд післе створення об'єкту. Підказка: викликайте його в constructor
-// Студент отримує стипендію тільки в тому випадку, якщо середній бал у нього вище або дорівнює 4.0
-// Якщо студента виключено, він не отримує стипендію (думаю це було і так очевидно :) )
+console.group("Creating getScolrarship method and trying it on our budget student - no marks, no scolarship");
+budgetStudent.getScolrarship();
+console.groupEnd();
 
-budgetStudent.getScolrarship(); // nothing happened - no marks, no average > 4.0
+console.group("Updating with marks good for scolarship - received");
 budgetStudent.marksArr = [5, 4, 4, 5];
-budgetStudent.getScolrarship(); // scolarship printing
+budgetStudent.getScolrarship();
+console.groupEnd();
+
+console.group("Immidiately dissmissing a student, its a reason why message displayed only once. Before dissmissing only");
 budgetStudent.dismiss();
-budgetStudent.getScolrarship(); // message about no scolarship due to student dismissed
-// budgetStudent.recover();
-// budgetStudent.marksArr = [3, 4, 4, 3];
-// budgetStudent.getScolrarship(); // recovered but message about no scolarship due to low average
-// budgetStudent.marksArr = [5, 4, 4, 5];
-// budgetStudent.getScolrarship(); // scolarship granted
-// ------------------------------------------------------------------------------------------------------------------ //
+budgetStudent.getScolrarship(); 
+console.groupEnd();
+
+console.group("Recovering a student but with low marks and trying to get a scolarship - no scolarship below 4.0");
+budgetStudent.recover();
+budgetStudent.marksArr = [3, 4, 4, 3];
+budgetStudent.getScolrarship();
+console.groupEnd();
+
+console.group("Updating with good marks, now scolarship granted and running every 30sec:)");
+budgetStudent.marksArr = [5, 4, 4, 5];
+budgetStudent.getScolrarship(); // scolarship granted
+
+console.groupEnd();
+
 
 
