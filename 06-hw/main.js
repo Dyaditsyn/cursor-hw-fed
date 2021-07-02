@@ -6,7 +6,7 @@ const students = [{
     subjects: {
       math: [4, 4, 3, 4],
       algorithms: [3, 3, 3, 4, 4, 4],
-      data_science: [5, 5, 3, 4]
+      data_science_and_mathematical_integration_to_ponycountry: [5, 5, 3, 4]
     }
   }, {
     name: "Victor",
@@ -32,7 +32,7 @@ const getSubjects = (studentIndex) => {
         throw new Error("Please select a student from the list to see subjects!");
     }
     return Object.keys(students[studentIndex].subjects).map( subject => 
-            capitalizeName(subject).replace("_", " ") );
+            capitalizeName(subject).replaceAll("_", " ") );
 }
 
                         
@@ -69,7 +69,7 @@ const getBestStudent = (students) => {
 
 // #6 //
 const calculateWordLetters = (inputWord) => {
-    const word = inputStringValid(inputWord).split(" ").join("");
+    const word = inputStringValid(inputWord).split(" ").join("").toLowerCase();
     const lettersCount = {}
     for (let i = 0; i < word.length; i++) {
         lettersCount[word[i]] ? lettersCount[word[i]] += 1 : lettersCount[word[i]] = 1
