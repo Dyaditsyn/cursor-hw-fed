@@ -27,22 +27,14 @@ function getTotalTaxes() {
 function getMySalary() {
     const salary = getRandomNumber(1500, 2000);
     const taxes = Number((salary * this.tax).toFixed(2));
-    return {
+    const salaryObj = {  
         salary: salary,
         taxes: taxes,
         profit: salary - taxes
-    };
+    }
+    setInterval( () => console.log(salaryObj), 10000 ) 
+    return salaryObj;
 }
-
-const uaTimer = setInterval ( () => console.log('Ukraine', getMySalary.call(ukraine)), 10000);
-const lvTimer = setInterval ( () => console.log('Latvia', getMySalary.call(latvia)), 10000);
-const liTimer = setInterval ( () => console.log('Litva', getMySalary.call(litva)), 10000);
-
-setTimeout(() => { clearInterval(uaTimer); }, 40000);
-setTimeout(() => { clearInterval(lvTimer); }, 40000);
-setTimeout(() => { clearInterval(liTimer); }, 40000);
-
-
 
 console.log('Function 1 tests - Your taxes according to your country');
 console.log(getMyTaxes.call(ukraine, '1000'));
@@ -63,6 +55,8 @@ console.log('Function 4 tests - profit per country ');
 console.log('Ukraine', getMySalary.call(ukraine));
 console.log('Latvia', getMySalary.call(latvia));
 console.log('Litva', getMySalary.call(litva));
+
+
 
 // ------------------------------------------------------------------------------------------------------------------ //
 

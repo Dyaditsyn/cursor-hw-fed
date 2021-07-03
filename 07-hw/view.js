@@ -65,15 +65,12 @@ function showTotalTaxes() {
         result.classList.remove("text-danger");
         if (country === ukraine) {
             result.textContent = JSON.stringify(getMySalary.call(ukraine))
-            setInterval ( () => result.textContent = JSON.stringify(getMySalary.call(ukraine)), 10000);
         }
         else if (country === latvia) {
             result.textContent = JSON.stringify(getMySalary.call(latvia));
-            setInterval ( () => result.textContent = JSON.stringify(getMySalary.call(latvia)), 10000);
         }
         else if (country === litva) {
             result.textContent = JSON.stringify(getMySalary.call(litva));
-            setInterval ( () => result.textContent = JSON.stringify(getMySalary.call(litva)), 10000);
         }
     }
     catch(error){
