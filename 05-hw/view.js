@@ -9,7 +9,7 @@ function showRandomArray(){
     result.textContent = "";
     let randomArray;
     try{
-        randomArray = getRandomArray(inputLength, inputNum1, inputNum2 );
+        randomArray = randomArrayWrapper(inputLength, inputNum1, inputNum2 );
         result.classList.remove("text-danger");
         result.textContent = `Random numbers array: ${JSON.stringify(randomArray, null, " ")}`;
     }

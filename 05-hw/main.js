@@ -1,29 +1,26 @@
 "use strict";
 
 // #1 //
-function getRandomArray(inputLength, inputNum1, inputNum2) {
+function randomArrayWrapper(inputLength, inputNum1, inputNum2) {
     const length = inputIntegerValid(inputLength, "for Length");
-    let randomNumbers = [];
     if (length <= 0) {
         throw new Error(`Invalid input! An array length must be positive integer`);
     }
-    for (let i = 0; i < length; i++) {
-        randomNumbers.push(getRandomNumber(inputNum1, inputNum2));
-    }
-    return randomNumbers;
+    return getRandomArray(length, inputNum1, inputNum2);
 }
 
-// #2 //
+const getRandomArray = (length, inputNum1, inputNum2) => 
+    Array.from({length}).map(el => el = getRandomNumber(inputNum1, inputNum2));
 
+// #2 //
 function modeWrapper(inputStr) {
     const numbers = handleInputInt (inputStr);
     return getMode(...numbers);
 }
 
-function getMode(...numbers) {
-	const numbersArr = [...numbers];															
+function getMode(...numbers) {															
     const frequencyTable = {};
-    numbersArr.forEach(elem => frequencyTable[elem] = frequencyTable[elem] + 1 || 1);
+    [...numbers].forEach(elem => frequencyTable[elem] = frequencyTable[elem] + 1 || 1);
 
     let mode;
     let maxFrequency = 0;
@@ -50,11 +47,10 @@ function averageWrapper(inputStr) {
 }
 
 function getAverage(...numbers) {
-    const numbersArr = [...numbers];
-    const total = numbersArr.reduce( (total, number) => {
+    const total = [...numbers].reduce( (total, number) => {
         return total + Number(number);
     }, 0);
-    return total / numbersArr.length;
+    return total / [...numbers].length;
 }
 
 // #4 //
@@ -68,7 +64,6 @@ function getMedian(...numbers) {
     const isArrLengthEven = arrSorted.length % 2 === 0 ;
     const evenLengthMedian = (arrSorted[arrSorted.length/2 - 1] + arrSorted[arrSorted.length/2])/2;
     const oddLengthMedian = arrSorted[Math.floor(arrSorted.length/2)];
-
     return isArrLengthEven ? evenLengthMedian : oddLengthMedian ;
 }
 
@@ -78,22 +73,17 @@ function filterEvenWrapper(inputStr) {
     return filterEvenNumbers(...numbers);
 }
 
-function filterEvenNumbers(...numbers) {
-    return [...numbers.filter( (num) => num % 2)];
-}
+const filterEvenNumbers = (...numbers) => [...numbers.filter( (num) => num % 2)];
 
 // #6 //
 function positivesCountWrapper(inputStr) {
     const numbers = handleInputNum (inputStr);
-    
     return countPositiveNumbers(...numbers);
 }
 
-function countPositiveNumbers(...numbers) {
-    return [...numbers].reduce( (count, num) => {
+const countPositiveNumbers = (...numbers) => [...numbers].reduce( (count, num) => {
         return num > 0 ? count + 1 : count;
     }, 0);
-}
 
 // #7 //
 function devidedByFiveWrapper(inputStr) {
@@ -101,37 +91,41 @@ function devidedByFiveWrapper(inputStr) {
     return getDividedByFive(...numbers);
 }
 
-function getDividedByFive(...numbers) {
-    return [...numbers].filter( (num) => num % 5 === 0);
-}
+const getDividedByFive = (...numbers) => [...numbers].filter( (num) => num % 5 === 0);
 
 // #8 //
-function replaceBadWords(inputStr){
-    let phrase = inputStringValid(inputStr).split(" ");
-    const badWords = ["shit", "fuck"];
-    let replacer = "";
+// function replaceBadWords(inputStr){
+//     const phrase = inputStringValid(inputStr).split(" ");
+//     const badWords = ["shit", "fuck"];
+//     let replacer = "";
 
-    for (let i = 0; i < badWords.length; i++) {
-        for (let j = 0; j < phrase.length; j++) {
-            if (phrase[j].toLowerCase().includes(badWords[i])) {
-                for (let k = 0; k < badWords[i].length; k++) {
-                    replacer += "*";   
-                }
-                const startIndexBad = phrase[j].toLowerCase().indexOf(badWords[i]);
-                const tempBadWord = phrase[j].split("");
-                tempBadWord.splice(startIndexBad, replacer.length, replacer);
-                phrase[j] = tempBadWord.join("");
-            } 
-        }   
+//     for (let i = 0; i < badWords.length; i++) {
+//         for (let j = 0; j < phrase.length; j++) {
+//             if (phrase[j].toLowerCase().includes(badWords[i])) {
+//                 for (let k = 0; k < badWords[i].length; k++) {
+//                     replacer += "*";   
+//                 }
+//                 const startIndexBad = phrase[j].toLowerCase().indexOf(badWords[i]);
+//                 const tempBadWord = phrase[j].split("");
+//                 tempBadWord.splice(startIndexBad, replacer.length, replacer);
+//                 phrase[j] = tempBadWord.join("");
+//             } 
+//         }   
+//     }
+//     return phrase.join(" ");
+// }
+
+const replaceBadWords = (string) => {
+    const badWords = ["ass", "bottom", "damn", "shit", "fuck"];
+    const replaceWords = new RegExp(badWords.join('|'), "gi");
+    return string.split(' ').map(word => word.replace(replaceWords, "*".repeat(word.length))).join(' ');
     }
-    return phrase.join(" ");
-}
 
 // #9 //
 function divideByThree(inputStr){
     const string = inputStringValid(inputStr);
     const word = Array.from(string.toLowerCase().replaceAll(' ',''));
-    let arrOfTree = [];
+    const arrOfTree = [];
 
      while (word.length > 3) {
         const removed = word.splice(0, 3).join("");
@@ -153,16 +147,16 @@ function generateCombinations(inputStr) {
         return [word];
     }
 
-    let combinations = [];
+    const combinations = [];
 
     for (let i = 0; i < word.length; i++) {
     
-        let char = word[i];
+        const char = word[i];
         if (word.indexOf(char) !== i) {
             continue;
         }
 
-        let remainingStr = word.slice(0, i) + word.slice(i + 1, word.length);
+        const remainingStr = word.slice(0, i) + word.slice(i + 1, word.length);
 
         for (let subWord of generateCombinations(remainingStr)) {
             combinations.push(char + subWord) ;
