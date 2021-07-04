@@ -1,7 +1,7 @@
 "use strict";
 
 // #1 //
-function randomArrayWrapper(inputLength, inputNum1, inputNum2) {
+const randomArrayWrapper = (inputLength, inputNum1, inputNum2) => {
     const length = inputIntegerValid(inputLength, "for Length");
     if (length <= 0) {
         throw new Error(`Invalid input! An array length must be positive integer`);
@@ -13,12 +13,12 @@ const getRandomArray = (length, inputNum1, inputNum2) =>
     Array.from({length}).map(el => el = getRandomNumber(inputNum1, inputNum2));
 
 // #2 //
-function modeWrapper(inputStr) {
+const modeWrapper = (inputStr) => {
     const numbers = handleInputInt (inputStr);
     return getMode(...numbers);
 }
 
-function getMode(...numbers) {															
+const getMode = (...numbers) => {															
     const frequencyTable = {};
     [...numbers].forEach(elem => frequencyTable[elem] = frequencyTable[elem] + 1 || 1);
 
@@ -41,12 +41,12 @@ function getMode(...numbers) {
 }
 
 // #3 //
-function averageWrapper(inputStr) {
+const averageWrapper = (inputStr) => {
     const numbers = handleInputInt (inputStr);
     return getAverage(...numbers);
 }
 
-function getAverage(...numbers) {
+const getAverage = (...numbers) => {
     const total = [...numbers].reduce( (total, number) => {
         return total + Number(number);
     }, 0);
@@ -54,12 +54,12 @@ function getAverage(...numbers) {
 }
 
 // #4 //
-function medianWrapper(inputStr) {
+const medianWrapper = (inputStr) => {
     const numbers = handleInputInt (inputStr);
     return getMedian(...numbers);
 }
 
-function getMedian(...numbers) {
+const getMedian = (...numbers) => {
     const arrSorted = [...numbers].sort( (a, b) => a - b);
     const isArrLengthEven = arrSorted.length % 2 === 0 ;
     const evenLengthMedian = (arrSorted[arrSorted.length/2 - 1] + arrSorted[arrSorted.length/2])/2;
@@ -68,7 +68,7 @@ function getMedian(...numbers) {
 }
 
 // #5 //
-function filterEvenWrapper(inputStr) {
+const filterEvenWrapper = (inputStr) => {
     const numbers = handleInputInt (inputStr);
     return filterEvenNumbers(...numbers);
 }
@@ -76,7 +76,7 @@ function filterEvenWrapper(inputStr) {
 const filterEvenNumbers = (...numbers) => [...numbers.filter( (num) => num % 2)];
 
 // #6 //
-function positivesCountWrapper(inputStr) {
+const positivesCountWrapper = (inputStr) => {
     const numbers = handleInputNum (inputStr);
     return countPositiveNumbers(...numbers);
 }
@@ -86,7 +86,7 @@ const countPositiveNumbers = (...numbers) => [...numbers].reduce( (count, num) =
     }, 0);
 
 // #7 //
-function devidedByFiveWrapper(inputStr) {
+const devidedByFiveWrapper = (inputStr) => {
     const numbers = handleInputInt (inputStr);
     return getDividedByFive(...numbers);
 }
@@ -94,32 +94,13 @@ function devidedByFiveWrapper(inputStr) {
 const getDividedByFive = (...numbers) => [...numbers].filter( (num) => num % 5 === 0);
 
 // #8 //
-// function replaceBadWords(inputStr){
-//     const phrase = inputStringValid(inputStr).split(" ");
-//     const badWords = ["shit", "fuck"];
-//     let replacer = "";
-
-//     for (let i = 0; i < badWords.length; i++) {
-//         for (let j = 0; j < phrase.length; j++) {
-//             if (phrase[j].toLowerCase().includes(badWords[i])) {
-//                 for (let k = 0; k < badWords[i].length; k++) {
-//                     replacer += "*";   
-//                 }
-//                 const startIndexBad = phrase[j].toLowerCase().indexOf(badWords[i]);
-//                 const tempBadWord = phrase[j].split("");
-//                 tempBadWord.splice(startIndexBad, replacer.length, replacer);
-//                 phrase[j] = tempBadWord.join("");
-//             } 
-//         }   
-//     }
-//     return phrase.join(" ");
-// }
-
-const replaceBadWords = (string) => {
-    const badWords = ["ass", "bottom", "damn", "shit", "fuck"];
+const replaceBadWords = (inputStr) => {
+    const string = inputStringValid(inputStr);
+    const badWords = ["ass", "damn", "shit", "fuck"];
     const replaceWords = new RegExp(badWords.join('|'), "gi");
-    return string.split(' ').map(word => word.replace(replaceWords, "*".repeat(word.length))).join(' ');
-    }
+    return string.split(' ').map( word => 
+        word.replace(replaceWords, "*".repeat(string.match(replaceWords).toString().length))).join(' ');
+}
 
 // #9 //
 function divideByThree(inputStr){
