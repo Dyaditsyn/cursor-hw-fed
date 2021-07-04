@@ -33,11 +33,5 @@ const generateBlocks = (row = 5, col = 5, siz = 50) => {
 // change blocks colors
 const generateBlocksInterval = () => {
     generateBlocks();
-    const blocks = document.querySelectorAll(".block");
-    setInterval( () => 
-    blocks.forEach( block => block.style.backgroundColor = randomColor()), 1000)
+    setInterval( () => generateBlocks(), 1000);
 }
-
-
-//--------------------------------------------------------------------------------------------------------------------//
-
