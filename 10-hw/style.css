@@ -14,12 +14,6 @@ h1 {
   font-weight: bold;
 }
 
-h2 {
-  font-size: 24px;
-  margin-bottom: 20px;
-  font-weight: bold;
-}
-
 h3 {
   font-size: 20px;
   margin-bottom: 20px;
@@ -30,49 +24,46 @@ h3 {
   text-align: center;
 }
 
-.wrapper {
-  padding: 10px 5px 5px 10px;
-  display: inline-block;
+.piano {
+  width: 700px;
+  height: 400px;
+  margin: 50px auto;
+  display: flex;
 }
 
-.block {
-  border: 1px solid;
-  border-radius: 10%;
-  display: inline-block;
-  margin-right: 5px;
-}
-
-button {
-  padding: 10px 20px;
-  margin: 10px;
-  font-size: 20px;
+.key {
+  width: 100px;
+  height: 100%;
+  border: 2px solid #000;
+  border-radius: 0 0 5px 5px;
   cursor: pointer;
-  background-color: green;
-  border: 2px solid green;
+  box-shadow: inset -2px -2px 5px #000;
+  text-align: center;
+  font-size: 40px;
+  font-family: sans-serif;
+  font-weight: bold;
+  background-color: #fff;
+  transition: .1s;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
 }
 
-button:hover {
-  background-color: lawngreen;
-  border: 2px solid lawngreen;
+.key-b {
+  background-color: #000;
+  width: 70px;
+  font-size: 30px;
+  color: #fff;
+  height: 60%;
+  margin-left: -35px;
+  margin-right: -35px;
+  z-index: 2;
 }
 
-button:active {
-  background-color: lawngreen;
-  border: 2px solid green;
+.key.active {
+  background-color: #ccc;
 }
 
-aside {
-  width: 190px;
-  position: absolute;
-  text-align: left;
-  margin-left: 10px;
-}
-
-input {
-  border-radius: 10px;
-  padding: 10px
-}
-
-aside > div {
-  margin-bottom: 10px;
+.key-b.active {
+  background-color: #333;
 }
