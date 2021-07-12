@@ -1,0 +1,78 @@
+html, body {
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 18px;
+  min-height: 100vh;
+  min-width: 1500px;
+  background: #2980B9;  /* fallback for old browsers */
+  background: -webkit-linear-gradient(to bottom, #FFFFFF, #6DD5FA, #2980B9);  /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(to bottom, #FFFFFF, #6DD5FA, #2980B9); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+}
+
+h1 {
+  font-size: 36px;
+  line-height: 2;
+  font-weight: bold;
+}
+
+h2 {
+  font-size: 24px;
+  margin-bottom: 20px;
+  font-weight: bold;
+}
+
+h3 {
+  font-size: 20px;
+  margin-bottom: 20px;
+  font-weight: bold;
+}
+
+.container {
+  text-align: center;
+}
+
+.wrapper {
+  padding: 10px 5px 5px 10px;
+  display: inline-block;
+}
+
+.block {
+  border: 1px solid;
+  border-radius: 10%;
+  display: inline-block;
+  margin-right: 5px;
+}
+
+button {
+  padding: 10px 20px;
+  margin: 10px;
+  font-size: 20px;
+  cursor: pointer;
+  background-color: green;
+  border: 2px solid green;
+}
+
+button:hover {
+  background-color: lawngreen;
+  border: 2px solid lawngreen;
+}
+
+button:active {
+  background-color: lawngreen;
+  border: 2px solid green;
+}
+
+aside {
+  width: 190px;
+  position: absolute;
+  text-align: left;
+  margin-left: 10px;
+}
+
+input {
+  border-radius: 10px;
+  padding: 10px
+}
+
+aside > div {
+  margin-bottom: 10px;
+}
